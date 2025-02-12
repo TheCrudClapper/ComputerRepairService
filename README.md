@@ -4,9 +4,11 @@ ___
 Computer Service Management System is an application that allows you to manage computer service on various fields. App made as semestral project from Business <b>Desktop Applications Development</b>.
 </p>
 
-<p align="right">
+<p align="center">
   <img src="https://github.com/VortexOoN/ComputerRepairService/blob/main/Readme/1.PNG">
 </p>
+
+
 
 ## Features
 
@@ -28,9 +30,24 @@ Computer Service is a desktop application developed using WPF technology, follow
 - Analyzing how service is performing in Dashboard like component
 
 ## Technologies
-- C# main programming language
-- WPF (Windows Presentation Foundation) user interface
-- MVVM (Model-View-ViewModel) application architecture
-- Entity Framework Core  data access layer
-- SQL database
+- 👨‍💻 C# main programming language
+- 🖥️ WPF (Windows Presentation Foundation) user interface
+- 🧱 MVVM (Model-View-ViewModel) application architecture
+- 🛠️ Entity Framework Core  data access layer
+- 🛢️ SQL database
 
+## Screenshots
+
+<p align="center">
+  <img src="https://github.com/VortexOoN/ComputerRepairService/blob/main/Readme/2.PNG">
+</p>
+
+<p align="center">
+  <img src="https://github.com/VortexOoN/ComputerRepairService/blob/main/Readme/3.PNG">
+</p>
+
+## Contributing
+
+1. Fork the repository
+2. Create a branch for your new feature
+3. Commit changes with clear description of changes you've made
