@@ -1,0 +1,105 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ComputerRepairService.Views.Many"
+             xmlns:Many="clr-namespace:ComputerRepairService.ViewModels.Many" x:Class="ComputerRepairService.Views.Many.SchedulesView"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary Source="../MainWindowResources.xaml"/>
+    </UserControl.Resources>
+    <d:UserControl.DataContext>
+        <Many:SchedulesViewModel/>
+    </d:UserControl.DataContext>
+    <Grid>
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+                <GroupBox Header="Filters" BorderBrush="#3d0c59">
+                    <StackPanel Orientation="Horizontal">
+                        <CheckBox IsChecked="{Binding HasEndDate}" Content="Has End Date" VerticalContentAlignment="Center"/>
+                        <Border Margin ="3" BorderBrush="#863cb0" BorderThickness="1">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Filter By"/>
+                                <ComboBox Style="{StaticResource FiltersComboBox}" Width="130" ItemsSource="{Binding SearchComboBoxDto}" SelectedValuePath="PropertyTitle" DisplayMemberPath="DisplayName" SelectedValue="{Binding SearchProperty}"/>
+                                <TextBox Style="{StaticResource FiltersSearchInput}" Text="{Binding SearchInput}" />
+                            </StackPanel>
+                        </Border>
+                        <Border Margin ="3" BorderBrush="#863cb0" BorderThickness="1">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Start Date"/>
+                                <DatePicker Style="{StaticResource FiltersDatePicker}" SelectedDate="{Binding StartDate}"/>
+                                <Label Content="End Date"/>
+                                <DatePicker Style="{StaticResource FiltersDatePicker}" SelectedDate="{Binding EndDate}"/>
+                                <Label Content="Date Due"/>
+                                <DatePicker Style="{StaticResource FiltersDatePicker}" SelectedDate="{Binding DateDue}"/>
+                            </StackPanel>
+
+                        </Border>
+                        <Border Margin ="3" BorderBrush="#863cb0" BorderThickness="1">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Sort By"/>
+                                <ComboBox Style="{StaticResource FiltersComboBox}" ItemsSource="{Binding OrderComboBoxDto}" SelectedValue="{Binding OrderProperty}" DisplayMemberPath="DisplayName" SelectedValuePath="PropertyTitle"/>
+                                <CheckBox Content="Ascending" VerticalContentAlignment="Center" Margin="5,0" IsChecked="{Binding OrderAscending}"/>
+                            </StackPanel>
+                        </Border>
+                        <Button Content="Filter" Height="25" Width="50"  Background="#e9b8f2" BorderBrush="#3d0c59" Margin="0,0,5,0"  Command="{Binding FilterCommand}"/>
+                        <Button Content="Clear" Height="25" Width="50"  Background="#e9b8f2" BorderBrush="#3d0c59" Command="{Binding ClearFiltersCommand}"/>
+                    </StackPanel>
+                </GroupBox>
+
+                <ToolBar Background="#863cb0" Padding="3">
+
+                        <Button Margin="10 0" Content="Refresh" Command="{Binding RefreshCommand}"/>
+
+                        <Button Margin="10 0" Content="Delete" Command="{Binding DeleteCommand}"/>
+
+                        <Button Margin="10 0" Content="Edit/Select" Command="{Binding EditCommand}"/>
+
+                        <Button Margin="10 0" Content="Add New" Command="{Binding CreateNewCommand}"/>
+
+                    </ToolBar>
+                    <DataGrid
+             AutoGenerateColumns="False" Height="auto" ItemsSource="{Binding Models}"
+             CanUserDeleteRows="False" IsReadOnly="True"  CanUserAddRows="False"
+             SelectedItem="{Binding SelectedModel}"
+             AlternatingRowBackground="LightGray"
+             FrozenColumnCount="2" ColumnHeaderHeight="30"
+             >
+
+                    <DataGrid.Columns>
+
+                        <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+
+                        <DataGridTextColumn Header="Job Id" Binding="{Binding JobId}"/>
+
+                        <DataGridTextColumn Header="Issue" Width="100" Binding="{Binding IssueDescription}"/>
+
+                        <DataGridTextColumn Header="Employee Id" Binding="{Binding EmployeeId}"/>
+
+                        <DataGridTextColumn Header="Employee Name" Binding="{Binding EmployeeName}"/>
+
+                        <DataGridTextColumn Header="Customer" Binding="{Binding CustomerName}"/>
+                        
+                        <DataGridTextColumn Header="Start Date"  Binding="{Binding StartDate}"/>
+
+                        <DataGridTextColumn Header="Date Due"  Binding="{Binding DateAssigned}"/>
+
+                        <DataGridTextColumn Header="End Date"  Binding="{Binding EndDate}"/>
+
+                        <DataGridTextColumn Header="Date Created"  Binding="{Binding DateCreated}"/>
+
+                        <DataGridTextColumn Header="Date Edited"  Binding="{Binding DateEdited}"/>
+
+                        <DataGridTextColumn Header="Date Deleted"  Binding="{Binding DateDeleted}"/>
+
+
+                    </DataGrid.Columns>
+
+                </DataGrid>
+
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

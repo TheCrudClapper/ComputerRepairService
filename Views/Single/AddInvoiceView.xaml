@@ -1,0 +1,183 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ComputerRepairService.Views.Single"
+             xmlns:Single="clr-namespace:ComputerRepairService.ViewModels.Single" x:Class="ComputerRepairService.Views.Single.AddInvoiceView"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary Source="../MainWindowResources.xaml"/>
+    </UserControl.Resources>
+    <d:UserControl.DataContext>
+        <Single:AddInvoiceViewModel/>
+    </d:UserControl.DataContext>
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <GroupBox Header="Company Details" Margin="5" VerticalAlignment="Top" BorderBrush="#3d0c59" BorderThickness="2" Background="AliceBlue" Grid.ColumnSpan="2">
+            <StackPanel>
+                <Grid>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions >
+                    <Image Source="/Views/Single/bussiness.png" Width="60" Grid.RowSpan="3"/>
+                        <TextBlock Grid.Column="2" Text="OptiPC sp. z o.o." FontWeight="DemiBold"/>
+                    <TextBlock Grid.Column="2" Grid.Row="1" Text="NIP: 231-590-4715"/>
+                    <TextBlock Grid.Column="2" Grid.Row="2" Text="optipc@gmail.com"/>
+                </Grid>
+
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Grid.Row="1" Header="Invocie Details" Margin="5" BorderBrush="#3d0c59" BorderThickness="2" Background="AliceBlue" Height="250" VerticalAlignment="Top">
+            <StackPanel Margin="5">
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <TextBlock Text="Repair Jobs"/>
+                        <Button Width="150"  Margin="26,0,0,0"  Background="#e9b8f2" BorderBrush="#3d0c59" Command="{Binding SelectRepairJobCommand}" Content="Select Repair Job" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <TextBlock Text="Selected Job"/>
+                        <TextBox 
+                            Style="{StaticResource TextBoxValidation}"
+                            Text="{Binding RepairJobId,UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" HorizontalContentAlignment="Center" Height="22" Margin="20,0,0,0" IsEnabled="False" Width="50"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                    <TextBlock Text="Day of Issue"/>
+                    <DatePicker 
+                        Style="{StaticResource DatePickerValidation}"
+                        SelectedDate="{Binding DateOfIssue, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Margin="22,0,0,0" Width="150"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <TextBlock Text="Payment Status"/>
+                        <ComboBox Width="150"  Margin="5,0,0,0" 
+                                  Style="{StaticResource ComboBoxValidation}"
+                                  ItemsSource="{Binding PaymentStatuses}"  
+                                  SelectedValue="{Binding PaymentStatus, UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}" 
+                                  Text="Select Status" IsReadOnly="True" IsEditable="True"/> 
+                    </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <TextBlock Text="Total Cost"/>
+                        <TextBox Margin="34,0,0,0" Width="150"
+                                 Style="{StaticResource TextBoxValidation}"
+                                 Text="{Binding TotalCost,  UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Height="22"/>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Grid.Row="1" Grid.Column="1" Header="Customer Details" Margin="5" BorderBrush="#3d0c59" BorderThickness="2" Background="AliceBlue" Height="250" VerticalAlignment="Top">
+            <StackPanel Margin="5">
+                <StackPanel Orientation="Horizontal" Margin="5">
+
+                    <TextBlock Text="First Name" />
+                    <TextBlock Width="150"  Margin="10,0,0,0" Background="#e9b8f2" Text="{Binding InvoiceCustomer.FirstName}" Height="21"/>
+                    </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <TextBlock Text="Surname"/>
+                        <TextBlock Width="150"   Margin="20,0,0,0" Background="#e9b8f2" Text="{Binding InvoiceCustomer.Surname}" Height="21"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <TextBlock Text="Nip"/>
+                        <TextBlock Width="150" Margin="47,0,0,0" Background="#e9b8f2" Text="{Binding InvoiceCustomer.Nip}" Height="21"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <TextBlock Text="Email "/>
+                        <TextBlock Width="150"  Margin="35,0,0,0" Background="#e9b8f2" Text="{Binding InvoiceCustomer.Email}" Height="21"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <TextBlock Text="Phone"/>
+                    <TextBlock Width="150"   Margin="33,0,0,0" Background="#e9b8f2" Text="{Binding InvoiceCustomer.PhoneNumber}" Height="21"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <TextBlock Text="Place"/>
+                        <TextBlock Width="150"   Margin="39,0,0,0" Background="#e9b8f2" Text="{Binding InvoiceCustomer.Place}" Height="21"/>
+                </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <TextBlock Text="Street"/>
+                        <TextBlock Width="150"   Margin="35,0,0,0" Background="#e9b8f2" Text="{Binding InvoiceCustomer.Street}" Height="21"/>
+                    </StackPanel>
+                </StackPanel>
+        </GroupBox>
+        
+        <GroupBox Grid.Row="2" Grid.ColumnSpan="2" Header="Invoice Items" BorderBrush="#3d0c59" BorderThickness="2" Background="AliceBlue">
+            <StackPanel>
+                <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                <TabControl  Margin="5" Height="Auto" BorderThickness="1">
+                    <TabItem Header="Services" >
+                        <StackPanel Background="AliceBlue">
+                            <StackPanel Orientation="Horizontal" Background="#863cb0" Height="30">
+                                    <TextBlock VerticalAlignment="Center" Text="Total Services Cost: "  Margin="5,0,0,0" FontWeight="DemiBold"></TextBlock>
+                                    <TextBlock VerticalAlignment="Center" Text="{Binding TotalServicesCost,  StringFormat={}{0:0.00 zł}}"/>
+                                </StackPanel>
+                                <DataGrid AutoGenerateColumns="False" Height="200" ItemsSource="{Binding JobServices}"
+                                    CanUserDeleteRows="False" IsReadOnly="True"  CanUserAddRows="False"
+                                    AlternatingRowBackground="LightGray"
+                                    FrozenColumnCount="2" ColumnHeaderHeight="30"
+                                    >       
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="ID" Binding="{Binding Id}"/>
+                                        <DataGridTextColumn Header="Service" Binding="{Binding ServiceName}"/>
+                                        <DataGridTextColumn Header="Cost" Binding="{Binding Cost, StringFormat={}{0:0.00 zł}}"/>
+                                        <DataGridTextColumn Header="Date Created" Binding="{Binding DateCreated}"/>
+                                        <DataGridTextColumn Header="Date Edited" Binding="{Binding DateEdited}"/>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </StackPanel>
+                    </TabItem>
+                    <TabItem Header="Parts" >
+                        <StackPanel Background="AliceBlue">
+                            <StackPanel Orientation="Horizontal" Background="#863cb0" Height="30">
+                                    <TextBlock VerticalAlignment="Center" Text="Total Parts Cost: " Margin="5,0,0,0" FontWeight="DemiBold"></TextBlock>
+                                    <TextBlock VerticalAlignment="Center" Text="{Binding TotalPartsCost, StringFormat={}{0:0.00 zł}}"/>
+                                </StackPanel>
+                                <DataGrid AutoGenerateColumns="False" Height="200" ItemsSource="{Binding JobParts}"
+                                    CanUserDeleteRows="False" IsReadOnly="True"  CanUserAddRows="False"
+                                    SelectedItem="{Binding SelectedJobPartDto}"
+                                    AlternatingRowBackground="LightGray"
+                                    FrozenColumnCount="2" ColumnHeaderHeight="30">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="ID" Binding="{Binding Id}"/>
+                                        <DataGridTextColumn Header="Item" Binding="{Binding PartName}"/>
+                                        <DataGridTextColumn Header="Category" Binding="{Binding PartCategory}"/>
+                                        <DataGridTextColumn Header="Quantity" Binding="{Binding QuantityUsed}"/>
+                                        <DataGridTextColumn Header="Cost" Binding="{Binding Cost, StringFormat={}{0:0.00 zł}}"/>
+                                        <DataGridTextColumn Header="Total Cost" Binding="{Binding TotalCost}"/>
+                                        <DataGridTextColumn Header="Date Created" Binding="{Binding DateCreated}"/>
+                                        <DataGridTextColumn Header="Date Edited" Binding="{Binding DateEdited}"/>
+                                    </DataGrid.Columns>
+
+                                </DataGrid>
+                            </StackPanel>
+                    </TabItem>
+                </TabControl>
+            </StackPanel>
+        </GroupBox>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1" Grid.Row="3" VerticalAlignment="Top" Margin="5">
+                <Button Height="20" Margin="0,0,5,0" Width="70" Content="Save" Command="{Binding SaveCommand}" Background="#e9b8f2" BorderBrush="#3d0c59"/>
+                <Button Height="20" Margin="0,0,5,0" Width="70" Content="Clear" Command="" Background="#e9b8f2" BorderBrush="#3d0c59"/>
+                <Button Height="20" Width="70" Content="Cancel" Background="#e9b8f2" Command="{Binding CancelCommand}" BorderBrush="#3d0c59"/>
+            </StackPanel>
+        </Grid>
+        </ScrollViewer>
+</UserControl>
