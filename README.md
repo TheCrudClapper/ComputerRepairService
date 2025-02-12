@@ -59,6 +59,9 @@ git clone https://github.com/VortexOoN/ComputerRepairService.git
 3. Database Context code changes
 
     - Change database data in connection string in [DatabaseContext](https://github.com/VortexOoN/ComputerRepairService/blob/main/Models/Contexts/DatabaseContext.cs)
+    <p align="center">
+      <img src="https://github.com/VortexOoN/ComputerRepairService/blob/main/Readme/connection_string.png">
+    </p>
 
 ## Contributing
 
