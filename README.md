@@ -1,5 +1,6 @@
-![🖥️CSMS](https://github.com/user-attachments/assets/b14ed2a3-4334-4455-aade-ce4caf796555)
-
-Application created in MVVM Pattern using techbologies like:
-Project Description
-![1](https://github.com/user-attachments/assets/c4ea414a-49e7-479d-a570-f99d5da17370)
+![🖥️CSMS(1)](https://github.com/user-attachments/assets/dfaefc27-9a31-4a8a-b17e-831bf272c242)
+___
+<p align="center">
+Computer Service Management System is an application that allows you to manage computer service on various fields
+</p>
+![2](https://github.com/user-attachments/assets/70fbc8a8-1cb2-46c3-b46f-ab5e75234dc3)
