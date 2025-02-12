@@ -50,7 +50,15 @@ Computer Service is a desktop application developed using WPF technology, follow
 ````github
 git clone https://github.com/VortexOoN/ComputerRepairService.git
 ````
-2.
+2. Database Configuration
+
+    - Make sure you have installed [SSMS](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16) and [SQL Server](https://www.microsoft.com/pl-pl/sql-server/sql-server-downloads)
+
+    - Create Database from file : [ComputerService.sql](https://github.com/VortexOoN/ComputerRepairService/blob/main/ComputerService.sql)
+
+3. Database Context code changes
+
+    - Change database data in connection string in [DatabaseContext](https://github.com/VortexOoN/ComputerRepairService/blob/main/Models/Contexts/DatabaseContext.cs)
 
 ## Contributing
 
