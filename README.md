@@ -75,7 +75,7 @@ git clone https://github.com/VortexOoN/ComputerRepairService.git
 
     - Change database data in connection string in [DatabaseContext](https://github.com/VortexOoN/ComputerRepairService/blob/main/Models/Contexts/DatabaseContext.cs)
     <p align="center">
-      <img src="https://github.com/VortexOoN/ComputerRepairService/blob/main/Readme/connection_string.png">
+      <img src="Readme/connection_string.png">
     </p>
 4. Build Project in Visual Studio and Run !
    - Now, you are all set up 😎
