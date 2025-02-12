@@ -2,13 +2,10 @@
 ___
 <p align="center">
 Computer Service Management System is an application that allows you to manage computer service on various fields. App made as semestral project from Business <b>Desktop Applications Development</b>.
-</p>
 
 <p align="center">
   <img src="https://github.com/VortexOoN/ComputerRepairService/blob/main/Readme/1.PNG">
 </p>
-
-
 
 ## Features
 
@@ -27,6 +24,8 @@ Computer Service is a desktop application developed using WPF technology, follow
   - Job Statuses
   - Feedbacks
 - Generating Raports in card form from given period of time
+- Sorting and Ordering on database in displaying views
+- Input Data Validation
 - Analyzing how service is performing in Dashboard like component
 
 ## Technologies
@@ -45,6 +44,13 @@ Computer Service is a desktop application developed using WPF technology, follow
 <p align="center">
   <img src="https://github.com/VortexOoN/ComputerRepairService/blob/main/Readme/3.PNG">
 </p>
+
+## Installation and Setup
+1. Clone Repo
+````github
+git clone https://github.com/VortexOoN/ComputerRepairService.git
+````
+2.
 
 ## Contributing
 
