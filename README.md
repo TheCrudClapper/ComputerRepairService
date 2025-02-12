@@ -45,6 +45,21 @@ Computer Service is a desktop application developed using WPF technology, follow
   <img src="https://github.com/VortexOoN/ComputerRepairService/blob/main/Readme/3.PNG">
 </p>
 
+## Project Structure
+
+| Directories          |   Content Description                   |
+|------------------|--------------------------------|
+| Helpers            | Contains utility classes like BaseCommand.cs  |
+| Models           | Contains services, dto's, db context |
+| Models/Services           | Contains services for centralized logic |
+| Models/Dtos           | Contains data transfer objects |
+| Models/Contexts           | Contains database context |
+| Readme           | files used in readme.md                    |
+| ViewModels           | All viewmodels for application                    |
+| Views           | All views for application                    |
+| ViewModels           | Contains images used in application                     |
+
+
 ## Installation and Setup
 1. Clone Repo
 ````github
@@ -62,7 +77,10 @@ git clone https://github.com/VortexOoN/ComputerRepairService.git
     <p align="center">
       <img src="https://github.com/VortexOoN/ComputerRepairService/blob/main/Readme/connection_string.png">
     </p>
+4. Build Project in Visual Studio and Run !
+   - Now, you are all set up 😎
 
+  
 ## Contributing
 
 1. Fork the repository
