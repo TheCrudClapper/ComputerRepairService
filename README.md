@@ -39,10 +39,11 @@ Computer Service is a desktop application developed using WPF technology, follow
 
 <p align="center">
   <img src="https://github.com/VortexOoN/ComputerRepairService/blob/main/Readme/4.PNG">
-</p>
 
-<p align="center">
+  <img src="https://github.com/VortexOoN/ComputerRepairService/blob/main/Readme/2.PNG">
+
   <img src="https://github.com/VortexOoN/ComputerRepairService/blob/main/Readme/3.PNG">
+  
 </p>
 
 ## Project Structure
