@@ -1,7 +1,7 @@
 ![🖥️CSMS(1)](https://github.com/user-attachments/assets/dfaefc27-9a31-4a8a-b17e-831bf272c242)
 ___
 <p align="center">
-Computer Service Management System is an application that allows you to manage computer service on various fields. App made as semestral project from Business <b>Desktop Applications Development</b>.
+Computer Service Management System is an application that allows you to manage computer service on various fields. App made as semestral project from <b>Business Desktop Applications Development</b> Lecture.
 
 <p align="center">
   <img src="https://github.com/VortexOoN/ComputerRepairService/blob/main/Readme/1.PNG">
