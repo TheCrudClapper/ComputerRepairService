@@ -323,8 +323,10 @@ namespace ComputerRepairService.ViewModels.Single
         {
             if(SelectedJobPartDto != null)
             {
+                _JobPartService.RevertUsedPart(SelectedJobPartDto.PartId, SelectedJobPartDto.QuantityUsed);
                 _JobPartService.DeleteModel(SelectedJobPartDto);
                 JobParts.Remove(SelectedJobPartDto);
+                //reverting changes made while adding new job part
                 calculateTotalCosts();
             }
         }

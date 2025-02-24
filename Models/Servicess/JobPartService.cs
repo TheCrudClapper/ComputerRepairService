@@ -78,6 +78,7 @@ namespace ComputerRepairService.Models.Servicess
             {
                 Id = item.Id,
                 Cost = item.Cost,
+                PartId = item.PartId,
                 PartCategory = item.Part.PartCategory.CategoryName,
                 PartName = item.Part.PartName,
                 RepairJobId = item.JobId,
@@ -101,11 +102,21 @@ namespace ComputerRepairService.Models.Servicess
         {
             return DatabaseContext.Parts.Where(item => item.Id == partId).Select(item => item.QuantityInStock).First();
         }
+
+        //Substracts used quantity of part from database, to update stock value
         public void SubstractQuantityUsedFromDatabase(int partId, int quantityUsed)
         {
             var part = DatabaseContext.Parts.First(item => item.Id == partId);
             part.QuantityInStock -= quantityUsed;
             DatabaseContext.SaveChanges(); 
+        }
+
+        //Adds back quantity of parts to database, when part is deleted from JobPart
+        public void RevertUsedPart(int partId, int quantityUsed)
+        {
+            var part = DatabaseContext.Parts.First(item => item.Id == partId);
+            part.QuantityInStock += quantityUsed;
+            DatabaseContext.SaveChanges();
         }
         public override List<SearchComboBoxDto> GetSearchComboBoxDtos()
         {
