@@ -10,6 +10,7 @@ namespace ComputerRepairService.Models.Servicess
 {
     public class JobPartService : BaseService<JobPartDto, JobPart>
     {
+        public int availablePartQuantity { get; set; }
         public override void AddOrUpdateModel(JobPart model)
         {
             if (model.Id == default)
@@ -96,6 +97,10 @@ namespace ComputerRepairService.Models.Servicess
         {
             return DatabaseContext.Parts.Where(item => item.Id == partId).Select(item => item.UnitPrice).First();
         } 
+        public int GetPartAvailableQuantity(int partId)
+        {
+            return DatabaseContext.Parts.Where(item => item.Id == partId).Select(item => item.QuantityInStock).First();
+        }
         public override List<SearchComboBoxDto> GetSearchComboBoxDtos()
         {
             throw new NotImplementedException();
@@ -104,6 +109,25 @@ namespace ComputerRepairService.Models.Servicess
         public override List<SearchComboBoxDto> GetOrderByComboBoxDtos()
         {
             throw new NotImplementedException();
+        }
+        public override string ValidateProperty(string columnName, JobPart model)
+        {
+            if (columnName == nameof(model.QuantityUsed))
+            {
+                if (model.QuantityUsed > availablePartQuantity)
+                {
+                    return "Too much parts used, correct your number";
+                }
+                else if (model.QuantityUsed == default)
+                {
+                    return "Part quatity can't be 0";
+                }
+                else if (model.QuantityUsed < 0)
+                {
+                    return "Part quantity can't be lower negative";
+                }
+            }
+            return string.Empty;
         }
     }
 }

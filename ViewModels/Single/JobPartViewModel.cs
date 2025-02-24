@@ -28,6 +28,18 @@ namespace ComputerRepairService.ViewModels.Single
                 }
             }
         }
+        public int AvailablePartQuantity
+        {
+            get => Service.availablePartQuantity;
+            set
+            {
+                if (Service.availablePartQuantity != value)
+                {
+                    Service.availablePartQuantity = value;
+                    OnPropertyChanged(() => AvailablePartQuantity);
+                }
+            }
+        }
         public int PartId
         {
             get => Model.PartId;
@@ -39,6 +51,7 @@ namespace ComputerRepairService.ViewModels.Single
                     OnPropertyChanged(() => PartId);
                     //whenewer part id changes we download default price from unit price
                     Cost = Service.GetPartCostByPartId(value);
+                    AvailablePartQuantity = Service.GetPartAvailableQuantity(value);
                 }
             }
         }

@@ -57,11 +57,14 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="5">
                     <TextBlock Text="Quantity"/>
-                    <TextBox Height="20" Margin="14,0,0,0" Width="150" Text="{Binding QuantityUsed, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBox Height="20" Style="{StaticResource TextBoxValidation}" Margin="14,0,0,0" Width="150" Text="{Binding QuantityUsed, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="5">
                     <TextBlock Text="Cost"/>
-                    <TextBox Height="20" Margin="35,0,0,0" Width="150" Text="{Binding Cost, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBox Height="20" Margin="35,0,0,0" 
+                             
+                             Width="150" 
+                             Text="{Binding Cost, UpdateSourceTrigger=PropertyChanged}"/>
                 </StackPanel>
             </StackPanel>
         </GroupBox>
