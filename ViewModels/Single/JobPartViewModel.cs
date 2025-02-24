@@ -10,6 +10,7 @@ using CommunityToolkit.Mvvm.Messaging;
 using ComputerRepairService.Helpers;
 using System.Windows.Input;
 using ComputerRepairService.ViewModels.Many;
+using System.Windows;
 
 namespace ComputerRepairService.ViewModels.Single
 {
@@ -141,6 +142,27 @@ namespace ComputerRepairService.ViewModels.Single
                 ViewModelToBeOpened = new PartsWithCallbackViewModel(this)
             });
 
+        }
+        public override void Save()
+        {
+            try
+            {
+                if (Service.isValid(Model))
+                {
+                    Service.AddOrUpdateModel(Model);
+                    //substracting value added to repair from database quantity
+                    Service.SubstractQuantityUsedFromDatabase(PartId, QuantityUsed);
+                    OnRequestClose();
+                }
+                else
+                {
+                    throw new Exception();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error on save", "Error");
+            }
         }
         public void GetSelectedPart(SelectedObjectMessage<PartDto>  message)
         {

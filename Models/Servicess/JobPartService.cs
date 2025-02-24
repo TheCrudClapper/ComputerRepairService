@@ -101,6 +101,12 @@ namespace ComputerRepairService.Models.Servicess
         {
             return DatabaseContext.Parts.Where(item => item.Id == partId).Select(item => item.QuantityInStock).First();
         }
+        public void SubstractQuantityUsedFromDatabase(int partId, int quantityUsed)
+        {
+            var part = DatabaseContext.Parts.First(item => item.Id == partId);
+            part.QuantityInStock -= quantityUsed;
+            DatabaseContext.SaveChanges(); 
+        }
         public override List<SearchComboBoxDto> GetSearchComboBoxDtos()
         {
             throw new NotImplementedException();
