@@ -78,7 +78,14 @@ git clone https://github.com/VortexOoN/ComputerRepairService.git
     <p align="center">
       <img src="Readme/connection_string.png">
     </p>
-4. Build Project in Visual Studio and Run !
+4. NuGet packet installation(Visual Studio will promp to install necessary NuGets)
+   - Microsoft.EntityFrameworkCore.Tools
+   - Microsoft.EntityFrameworkCore.SqlServer
+   - Microsoft.EntityFrameworkCore
+   - LiveCharts.Wpf
+   - CommunityToolkit.Mvvm
+  
+6. Build Project in Visual Studio and Run !
    - Now, you are all set up 😎
 
   
