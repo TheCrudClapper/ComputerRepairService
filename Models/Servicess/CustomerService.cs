@@ -229,6 +229,11 @@ namespace ComputerRepairService.Models.Servicess
                 {
                     return "Postal City is required";
                 }
+                if(int.TryParse(model.Address.PostalCity, out _)) 
+                {
+                    return "Postal City cannot be number";
+                }
+
             }
             else if (columnName == nameof(Customer.Address.PostalCode))
             {
