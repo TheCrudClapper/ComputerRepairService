@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using ComputerRepairService.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using System.IO;
 
 namespace ComputerRepairService.Models.Contexts;
 
@@ -52,9 +51,16 @@ public partial class DatabaseContext : DbContext
 
     public virtual DbSet<Supplier> Suppliers { get; set; }
 
+    //moved connection string out of code
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=localhost;Integrated Security=True;Trust Server Certificate=True;Database=ComputerRepairShopDB");
+    {
+        var config = new ConfigurationBuilder()
+            .SetBasePath(Directory.GetCurrentDirectory())
+            .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+            .Build();
+        string connectionString = config.GetConnectionString("DefaultConnection");
+        optionsBuilder.UseSqlServer(connectionString);
+    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
