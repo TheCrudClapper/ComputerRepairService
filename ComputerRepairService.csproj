@@ -6,6 +6,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>ViewResources\Images\AppIco.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -29,127 +30,98 @@
     <None Remove="ViewResources\Images\chart.png" />
     <None Remove="ViewResources\Images\dashboard.png" />
     <None Remove="ViewResources\Images\employee.png" />
-    <None Remove="ViewResources\Images\logo.png" />
     <None Remove="ViewResources\Images\parts.png" />
+    <None Remove="ViewResources\Images\parts2.png" />
     <None Remove="ViewResources\Images\person.png" />
     <None Remove="ViewResources\Images\power.png" />
+    <None Remove="ViewResources\Images\power_light.png" />
+    <None Remove="ViewResources\Images\power_new.png" />
+    <None Remove="ViewResources\Images\pracownik.png" />
     <None Remove="ViewResources\Images\role.png" />
     <None Remove="ViewResources\Images\schedule.png" />
     <None Remove="ViewResources\Images\schedulge.png" />
+    <None Remove="ViewResources\Images\services.png" />
+    <None Remove="ViewResources\Images\services2.png" />
     <None Remove="ViewResources\Images\settings.png" />
     <None Remove="ViewResources\Images\status.png" />
     <None Remove="ViewResources\Images\supplier.png" />
     <None Remove="ViewResources\Images\truck.png" />
     <None Remove="ViewResources\Images\wrench.png" />
-    <None Remove="Views\chart.png" />
-    <None Remove="Views\dashboard.png" />
-    <None Remove="Views\employee.png" />
-    <None Remove="Views\logo.png" />
-    <None Remove="Views\parts.png" />
-    <None Remove="Views\parts2.png" />
-    <None Remove="Views\power.png" />
-    <None Remove="Views\power_light.png" />
-    <None Remove="Views\power_new.png" />
-    <None Remove="Views\schedulge.png" />
-    <None Remove="Views\services2.png" />
-    <None Remove="Views\settings.png" />
-    <None Remove="Views\Single\bussiness.png" />
-    <None Remove="Views\Single\category.png" />
-    <None Remove="Views\Single\employee.png" />
-    <None Remove="Views\Single\parts.png" />
-    <None Remove="Views\Single\person.png" />
-    <None Remove="Views\Single\role.png" />
-    <None Remove="Views\Single\schedule.png" />
-    <None Remove="Views\Single\services.png" />
-    <None Remove="Views\Single\settings.png" />
-    <None Remove="Views\Single\status.png" />
-    <None Remove="Views\Single\supplier.png" />
-    <None Remove="Views\Single\truck.png" />
-    <None Remove="Views\wrench.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="ViewResources\Images\bussiness.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ViewResources\Images\category.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ViewResources\Images\chart.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ViewResources\Images\status.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ViewResources\Images\wrench.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Resource Include="ViewResources\Images\employee.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <Resource Include="ViewResources\Images\power_light.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Content Include="ViewResources\Images\logo.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ViewResources\Images\parts.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ViewResources\Images\person.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ViewResources\Images\power.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ViewResources\Images\role.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ViewResources\Images\schedule.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ViewResources\Images\schedulge.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ViewResources\Images\settings.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ViewResources\Images\supplier.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ViewResources\Images\truck.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Resource Include="ViewResources\Images\power_new.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="ViewResources\Images\pracownik.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="ViewResources\Images\services.png" />
+    <Resource Include="ViewResources\Images\services2.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="ViewResources\Images\AppIco.ico" />
+    <Resource Include="ViewResources\Images\bussiness.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="ViewResources\Images\category.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="ViewResources\Images\status.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="ViewResources\Images\wrench.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="ViewResources\Images\chart.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="ViewResources\Images\employee.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="ViewResources\Images\parts.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="ViewResources\Images\person.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="ViewResources\Images\power.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="ViewResources\Images\role.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="ViewResources\Images\schedule.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="ViewResources\Images\schedulge.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="ViewResources\Images\settings.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="ViewResources\Images\supplier.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="ViewResources\Images\truck.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="ViewResources\Images\dashboard.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Views\chart.png" />
-    <Resource Include="Views\dashboard.png" />
-    <Resource Include="Views\employee.png" />
-    <Resource Include="Views\logo.png" />
-    <Resource Include="Views\parts.png" />
-    <Resource Include="Views\parts2.png" />
-    <Resource Include="Views\power.png" />
-    <Resource Include="Views\power_light.png" />
-    <Resource Include="Views\power_new.png" />
-    <Resource Include="Views\schedulge.png" />
-    <Resource Include="Views\services2.png" />
-    <Resource Include="Views\settings.png" />
-    <Resource Include="Views\Single\bussiness.png" />
-    <Resource Include="Views\Single\category.png" />
-    <Resource Include="Views\Single\employee.png" />
-    <Resource Include="Views\Single\parts.png" />
-    <Resource Include="Views\Single\person.png" />
-    <Resource Include="Views\Single\role.png" />
-    <Resource Include="Views\Single\schedule.png" />
-    <Resource Include="Views\Single\services.png" />
-    <Resource Include="Views\Single\settings.png" />
-    <Resource Include="Views\Single\status.png" />
-    <Resource Include="Views\Single\supplier.png" />
-    <Resource Include="Views\wrench.png" />
-    <Content Include="Views\Single\truck.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Resource Include="ViewResources\Images\parts2.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="ViewResources\Images\employee2.png" />
   </ItemGroup>
 
   <ItemGroup>

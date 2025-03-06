@@ -39,7 +39,7 @@
                         <ColumnDefinition Width="auto"/>
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions >
-                    <Image Source="/Views/Single/bussiness.png" Width="60" Grid.RowSpan="3"/>
+                        <Image  Source="pack://application:,,,/ViewResources/Images/bussiness.png" Width="60" Grid.RowSpan="3"/>
                         <TextBlock Grid.Column="2" Text="OptiPC sp. z o.o." FontWeight="DemiBold"/>
                     <TextBlock Grid.Column="2" Grid.Row="1" Text="NIP: 231-590-4715"/>
                     <TextBlock Grid.Column="2" Grid.Row="2" Text="optipc@gmail.com"/>

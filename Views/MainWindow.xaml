@@ -87,50 +87,50 @@
             <StackPanel Orientation="Vertical">
             <Button Style="{StaticResource SideMenuButtons}" Margin="3,6,-6,0" Command="{Binding OpenDashboardView}" VerticalAlignment="Top" HorizontalContentAlignment="Left">
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="/Views/dashboard.png" Margin="5,0,3,0"></Image>
+                        <Image Margin="5,0,3,0" Source="pack://application:,,,/ViewResources/Images/dashboard.png" ></Image>
                     <TextBlock Margin="2" VerticalAlignment="Center">Dashboard</TextBlock>
                 </StackPanel>
             </Button>
             <Button Style="{StaticResource SideMenuButtons}" Command="{Binding OpenRaportView}" Margin="3,5,-6,0" VerticalAlignment="Top" HorizontalContentAlignment="Left">
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="/Views/chart.png" Margin="10,0,0,0"></Image>
+                        <Image Source="pack://application:,,,/ViewResources/Images/chart.png" Margin="10,0,0,0"></Image>
                     <TextBlock Margin="2" VerticalAlignment="Center">Raport</TextBlock>
                 </StackPanel>
             </Button>
                 <Button Style="{StaticResource SideMenuButtons}" Command="{Binding OpenManageRepairsView}" Margin="3,5,-6,0" VerticalAlignment="Top" HorizontalContentAlignment="Left" >
                     <StackPanel Orientation="Horizontal">
-                        <Image  Margin="8,0,0,0" Source="/Views/wrench.png"  ></Image>
+                        <Image  Margin="8,0,0,0" Source="pack://application:,,,/ViewResources/Images/wrench.png"  ></Image>
                         <TextBlock Margin="2" VerticalAlignment="Center">Repairs</TextBlock>
                     </StackPanel>
                 </Button>
                 <Button Style="{StaticResource SideMenuButtons}" Margin="3,5,-6,0" VerticalAlignment="Top" HorizontalContentAlignment="Left" Command="{Binding OpenManageSchedulesView}">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="/Views/schedulge.png" Margin="7,0,0,0"></Image>
+                        <Image Source="pack://application:,,,/ViewResources/Images/schedulge.png" Margin="7,0,0,0"></Image>
                         <TextBlock Margin="2" VerticalAlignment="Center">Schedules</TextBlock>
                     </StackPanel>
                 </Button>
 
                 <Button Style="{StaticResource SideMenuButtons}" Command="{Binding OpenManageEmployeeView}" Margin="3,5,-6,0" VerticalAlignment="Top" HorizontalContentAlignment="Left" >
                     <StackPanel Orientation="Horizontal">
-                        <Image  Margin="8,0,0,0" Source="/Views/employee.png"  ></Image>
+                        <Image  Margin="8,0,0,0" Source="pack://application:,,,/ViewResources/Images/employee.png"  ></Image>
                         <TextBlock Margin="2" VerticalAlignment="Center">Employess</TextBlock>
                     </StackPanel>
                 </Button>
                 <Button Style="{StaticResource SideMenuButtons}" Command="{Binding OpenManageParts}" Margin="3,5,-6,0" VerticalAlignment="Top" HorizontalContentAlignment="Left" >
                     <StackPanel Orientation="Horizontal">
-                        <Image  Margin="8,0,0,0" Source="/Views/parts2.png"  ></Image>
+                        <Image  Margin="8,0,0,0" Source="pack://application:,,,/ViewResources/Images/parts2.png" ></Image>
                         <TextBlock Margin="2" VerticalAlignment="Center">Parts</TextBlock>
                     </StackPanel>
                 </Button>
                 <Button Style="{StaticResource SideMenuButtons}" Command="{Binding OpenManageServicesView}" Margin="3,5,-6,0" VerticalAlignment="Top" HorizontalContentAlignment="Left" >
                     <StackPanel Orientation="Horizontal">
-                        <Image  Margin="8,0,0,0" Source="/Views/services2.png"   ></Image>
+                        <Image  Margin="8,0,0,0" Source="pack://application:,,,/ViewResources/Images/services2.png"   ></Image>
                         <TextBlock Margin="2" VerticalAlignment="Center">Services</TextBlock>
                     </StackPanel>
                 </Button>
                 <Button Style="{StaticResource SideMenuButtons}" Margin="3,5,-6,0" VerticalAlignment="Top" HorizontalContentAlignment="Left">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="/Views/settings.png" Margin="8,0,0,0"></Image>
+                        <Image Source="pack://application:,,,/ViewResources/Images/settings.png" Margin="8,0,0,0"></Image>
                         <TextBlock Margin="2" VerticalAlignment="Center">Settings</TextBlock>
                     </StackPanel>
                 </Button>

@@ -38,7 +38,7 @@
                         <ColumnDefinition Width="auto"/>
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions >
-                    <Image  Width="60" Grid.RowSpan="3" Source="/Views/Single/supplier.png"  />
+                    <Image  Width="60" Grid.RowSpan="3"  Source="pack://application:,,,/ViewResources/Images/supplier.png"  />
                     <TextBlock Grid.Column="2" Text="Active Suppliers:" FontWeight="DemiBold" Height="15" VerticalAlignment="Top"/>
                     <TextBlock Grid.Column="2" Grid.Row="1" Text="{Binding NumberOfActiveSuppliers}" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Black"/>
                 </Grid>

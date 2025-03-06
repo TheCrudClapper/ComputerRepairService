@@ -37,7 +37,7 @@
                         <ColumnDefinition Width="auto"/>
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
-                    <Image  Width="60" Grid.RowSpan="3" Source="/Views/Single/services.png"  />
+                    <Image  Width="60" Grid.RowSpan="3"  Source="pack://application:,,,/ViewResources/Images/services.png"  />
                     <TextBlock Grid.Column="2" Text="Active services:" FontWeight="DemiBold" Height="15" VerticalAlignment="Top"/>
                     <TextBlock Grid.Column="2" Grid.Row="1" Text="{Binding NumberOfActiveServices}" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Black"/>
                 </Grid>

@@ -37,7 +37,7 @@
                         <ColumnDefinition Width="auto"/>
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
-                    <Image Width="60" Grid.RowSpan="3" Source="/Views/Single/parts.png" />
+                    <Image Width="60" Grid.RowSpan="3"  Source="pack://application:,,,/ViewResources/Images/parts.png" />
                     <TextBlock Grid.Column="2" Text="Database parts:" FontWeight="DemiBold" 
                            Height="15" VerticalAlignment="Top"/>
                     <TextBlock Grid.Column="2" Grid.Row="1" Text="{Binding NumberOfActiveParts}" 
