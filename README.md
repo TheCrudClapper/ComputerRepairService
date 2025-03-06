@@ -54,11 +54,11 @@ Computer Service is a desktop application developed using WPF technology, follow
 | Models           | Contains services, dto's, db context |
 | Models/Services           | Contains services for centralized logic |
 | Models/Dtos           | Contains data transfer objects |
-| Models/Contexts           | Contains database context |
+| Models/Contexts           | Contains database contexts |
 | Readme           | files used in readme.md                    |
 | ViewModels           | All viewmodels for application                    |
 | Views           | All views for application                    |
-| ViewModels           | Contains images used in application                     |
+| ViewResources          | Contains images used in application                     |
 
 
 ## Installation and Setup
@@ -76,7 +76,7 @@ git clone https://github.com/VortexOoN/ComputerRepairService.git
 
     - Change database connection string in [appsettings.json](https://github.com/VortexOoN/ComputerRepairService/blob/main/appsettings.json)
     <p align="center">
-      <img src="Readme/connection_string.png">
+      <img src="Readme/appsettings.png">
     </p>
 4. NuGet packet installation(Visual Studio will promp to install necessary NuGets)
    - Microsoft.EntityFrameworkCore.Tools
@@ -84,6 +84,9 @@ git clone https://github.com/VortexOoN/ComputerRepairService.git
    - Microsoft.EntityFrameworkCore
    - LiveCharts.Wpf
    - CommunityToolkit.Mvvm
+   - Microsoft.Extensions.Configuration.Binder
+   - Microsoft.Extensions.Configuration.FileExtensions
+   - Microsoft.Extensions.Configuration.Json
   
 6. Build Project in Visual Studio and Run !
    - Now, you are all set up 😎
