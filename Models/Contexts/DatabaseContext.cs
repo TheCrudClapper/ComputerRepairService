@@ -51,15 +51,16 @@ public partial class DatabaseContext : DbContext
 
     public virtual DbSet<Supplier> Suppliers { get; set; }
 
-    //moved connection string out of code
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         var config = new ConfigurationBuilder()
-            .SetBasePath(Directory.GetCurrentDirectory())
-            .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-            .Build();
-        string connectionString = config.GetConnectionString("DefaultConnection");
-        optionsBuilder.UseSqlServer(connectionString);
+            .SetBasePath(Directory.GetCurrentDirectory()) // 1️⃣ Ustawia bazową ścieżkę na katalog, w którym działa aplikacja
+            .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true) // 2️⃣ Wczytuje plik appsettings.json
+            .Build(); // 3️⃣ Tworzy obiekt konfiguracji
+
+        string connectionString = config.GetConnectionString("DefaultConnection"); // 4️⃣ Pobiera connection string
+
+        optionsBuilder.UseSqlServer(connectionString); // 5️⃣ Konfiguruje połączenie do bazy SQL Server
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

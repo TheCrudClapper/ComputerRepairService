@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using ComputerRepairService.Models.Dtos;
-using Microsoft.EntityFrameworkCore;
+﻿using ComputerRepairService.Models.Dtos;
 namespace ComputerRepairService.Models.Servicess
 {
     public class RoleService : BaseService<RoleDto, Role>
@@ -53,7 +46,7 @@ namespace ComputerRepairService.Models.Servicess
                         break;
                 }
             }
-            if (DateCreatedFrom != null) 
+            if (DateCreatedFrom != null)
             {
                 roles = roles.Where(item => item.DateCreated >= DateCreatedFrom);
             }
@@ -147,7 +140,7 @@ namespace ComputerRepairService.Models.Servicess
                 {
                     return "Role Name can't be number";
                 }
-                if(model.RoleName.Length < 4)
+                if (model.RoleName.Length < 4)
                 {
                     return "Role name can't be shorter than 4 chars";
                 }

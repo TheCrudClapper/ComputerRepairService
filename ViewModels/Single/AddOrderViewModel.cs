@@ -1,12 +1,7 @@
 ﻿using ComputerRepairService.Models;
 using ComputerRepairService.Models.Dtos;
 using ComputerRepairService.Models.Servicess;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ComputerRepairService.ViewModels.Single
 {
@@ -18,7 +13,7 @@ namespace ComputerRepairService.ViewModels.Single
             get => _NumberOfActiveDeliveries;
             set
             {
-                if(_NumberOfActiveDeliveries != value)
+                if (_NumberOfActiveDeliveries != value)
                 {
                     _NumberOfActiveDeliveries = value;
                     OnPropertyChanged(() => NumberOfActiveDeliveries);
@@ -42,7 +37,7 @@ namespace ComputerRepairService.ViewModels.Single
             get => Model.PartId;
             set
             {
-                if(Model.PartId != value)
+                if (Model.PartId != value)
                 {
                     Model.PartId = value;
                     OnPropertyChanged(() => PartId);
@@ -62,7 +57,7 @@ namespace ComputerRepairService.ViewModels.Single
                     {
                         TotalWorth = Service.GetTotalOrderWorthByPartId(PartId, value);
                     }
-                   
+
                 }
             }
         }
@@ -71,7 +66,7 @@ namespace ComputerRepairService.ViewModels.Single
             get => Model.OrderDate;
             set
             {
-                if(Model.OrderDate != value)
+                if (Model.OrderDate != value)
                 {
                     Model.OrderDate = value;
                     OnPropertyChanged(() => OrderDate);
@@ -90,20 +85,20 @@ namespace ComputerRepairService.ViewModels.Single
                 }
             }
         }
-        private decimal _TotalWorth {  get; set; }
+        private decimal _TotalWorth { get; set; }
         public decimal TotalWorth
         {
             get => _TotalWorth;
             set
             {
-                if(_TotalWorth != value)
+                if (_TotalWorth != value)
                 {
                     _TotalWorth = value;
                     OnPropertyChanged(() => TotalWorth);
                 }
             }
         }
-        private ObservableCollection<ComboBoxDto> _Parts {  get; set; }
+        private ObservableCollection<ComboBoxDto> _Parts { get; set; }
         public ObservableCollection<ComboBoxDto> Parts
         {
             get => _Parts;

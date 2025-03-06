@@ -1,11 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.Messaging;
 using ComputerRepairService.Helpers;
 using ComputerRepairService.Models.Dtos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ComputerRepairService.ViewModels.Many
 {
@@ -18,7 +13,7 @@ namespace ComputerRepairService.ViewModels.Many
         }
         protected override void HandleSelect()
         {
-            WeakReferenceMessenger.Default.Send<SelectedObjectMessage<CustomerDto>>(new SelectedObjectMessage<CustomerDto>(WhoRequestedToSelect,SelectedModel!));
+            WeakReferenceMessenger.Default.Send<SelectedObjectMessage<CustomerDto>>(new SelectedObjectMessage<CustomerDto>(WhoRequestedToSelect, SelectedModel!));
             OnRequestClose();
         }
     }

@@ -1,77 +1,71 @@
 ﻿using ComputerRepairService.Helpers;
-using ComputerRepairService.Models.Servicess;
-using ComputerRepairService.Models;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
 using ComputerRepairService.Models.Dtos;
+using ComputerRepairService.Models.Servicess;
+using System.Collections.ObjectModel;
+using System.Windows.Input;
 
 namespace ComputerRepairService.ViewModels.Many
 {
-        abstract public class BaseManyViewModel<ServiceType, DtoType, ModelType>
-        : BaseServiceViewModel<ServiceType, DtoType, ModelType>
-        where ServiceType : BaseService<DtoType, ModelType>, new()
-        where DtoType : class
-        where ModelType : new()
-        {
-            
-            private ObservableCollection<DtoType> _Models;
-            public ObservableCollection<DtoType> Models
-            {
-                get => _Models;
-                set
-                {
-                    if (_Models != value)
-                    {
-                        _Models = value;
-                        OnPropertyChanged(() => Models);
-                    }
-                }
-            }
+    abstract public class BaseManyViewModel<ServiceType, DtoType, ModelType>
+    : BaseServiceViewModel<ServiceType, DtoType, ModelType>
+    where ServiceType : BaseService<DtoType, ModelType>, new()
+    where DtoType : class
+    where ModelType : new()
+    {
 
-            public ICommand EditCommand { get; set; }
-            public ICommand RefreshCommand { get; set; }
-            public ICommand DeleteCommand { get; set; }
-            public ICommand CreateNewCommand { get; set; }
-            public ICommand FilterCommand { get; set; }
-            public ICommand ClearFiltersCommand { get; set; }
-            public string? SearchInput
+        private ObservableCollection<DtoType> _Models;
+        public ObservableCollection<DtoType> Models
+        {
+            get => _Models;
+            set
             {
-                get => Service.SearchInput;
-                set
+                if (_Models != value)
                 {
-                    if (Service.SearchInput != value)
-                    {
-                        Service.SearchInput = value;
-                        OnPropertyChanged(() => SearchInput);
-                    }
+                    _Models = value;
+                    OnPropertyChanged(() => Models);
                 }
             }
-            public List<YesComboBoxItemDto> YesNoOptions { get; set; }
-            public List<SearchComboBoxDto> SearchComboBoxDto { get; set; }
-            public List<SearchComboBoxDto> OrderComboBoxDto { get; set; }
-            
-            private DtoType? _SelectedModel;
-            public DtoType? SelectedModel
+        }
+
+        public ICommand EditCommand { get; set; }
+        public ICommand RefreshCommand { get; set; }
+        public ICommand DeleteCommand { get; set; }
+        public ICommand CreateNewCommand { get; set; }
+        public ICommand FilterCommand { get; set; }
+        public ICommand ClearFiltersCommand { get; set; }
+        public string? SearchInput
+        {
+            get => Service.SearchInput;
+            set
             {
-                get => _SelectedModel;
-                set
+                if (Service.SearchInput != value)
                 {
-                    if (_SelectedModel != value)
-                    {                   
-                        _SelectedModel = value;
-                        OnPropertyChanged(() => SelectedModel);
-                        //if (SelectedModel != null)
-                        //{
-                        //    HandleSelect();
-                        //}
-                }
+                    Service.SearchInput = value;
+                    OnPropertyChanged(() => SearchInput);
                 }
             }
+        }
+        public List<YesComboBoxItemDto> YesNoOptions { get; set; }
+        public List<SearchComboBoxDto> SearchComboBoxDto { get; set; }
+        public List<SearchComboBoxDto> OrderComboBoxDto { get; set; }
+
+        private DtoType? _SelectedModel;
+        public DtoType? SelectedModel
+        {
+            get => _SelectedModel;
+            set
+            {
+                if (_SelectedModel != value)
+                {
+                    _SelectedModel = value;
+                    OnPropertyChanged(() => SelectedModel);
+                    //if (SelectedModel != null)
+                    //{
+                    //    HandleSelect();
+                    //}
+                }
+            }
+        }
         public string? SearchProperty
         {
             get => Service.SearchProperty;
@@ -89,11 +83,11 @@ namespace ComputerRepairService.ViewModels.Many
             get => Service.OrderAscending;
             set
             {
-               if(Service.OrderAscending != value)
-               {
+                if (Service.OrderAscending != value)
+                {
                     Service.OrderAscending = value;
                     OnPropertyChanged(() => OrderAscending);
-               }
+                }
             }
         }
         public string? OrderProperty
@@ -140,24 +134,24 @@ namespace ComputerRepairService.ViewModels.Many
             SearchComboBoxDto = Service.GetSearchComboBoxDtos();
             SearchProperty = SearchComboBoxDto.FirstOrDefault()?.PropertyTitle;
             OrderProperty = OrderComboBoxDto.FirstOrDefault()?.PropertyTitle;
-            }
-            protected void Refresh()
-            {
-                Models = new ObservableCollection<DtoType>(Service.GetModels());
-            }
-            private void Delete()
-            {
-                if (SelectedModel != null)
-                {
-                    Service.DeleteModel(SelectedModel);
-                    Models.Remove(SelectedModel);
-                }
-            }
-            
-            protected abstract void ClearFilters();
-            //abstract method to be implemented in vm's
-            //allows for creating new window
-            protected abstract void CreateNew();
-            protected virtual void HandleSelect() { }
         }
+        protected void Refresh()
+        {
+            Models = new ObservableCollection<DtoType>(Service.GetModels());
+        }
+        private void Delete()
+        {
+            if (SelectedModel != null)
+            {
+                Service.DeleteModel(SelectedModel);
+                Models.Remove(SelectedModel);
+            }
+        }
+
+        protected abstract void ClearFilters();
+        //abstract method to be implemented in vm's
+        //allows for creating new window
+        protected abstract void CreateNew();
+        protected virtual void HandleSelect() { }
     }
+}

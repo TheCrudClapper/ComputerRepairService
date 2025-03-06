@@ -1,19 +1,8 @@
-﻿using ComputerRepairService.Helpers;
+﻿using CommunityToolkit.Mvvm.Messaging;
+using ComputerRepairService.Helpers;
 using ComputerRepairService.Models;
-using ComputerRepairService.Models.Contexts;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
 using ComputerRepairService.Models.Dtos;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Logging;
 using ComputerRepairService.Models.Servicess;
-using CommunityToolkit.Mvvm.Messaging;
-using ComputerRepairService.ViewModels.Single;
 namespace ComputerRepairService.ViewModels.Many
 {
     public class SuppliersViewModel : BaseManyViewModel<SupplierService, SupplierDto, Supplier>
@@ -23,7 +12,7 @@ namespace ComputerRepairService.ViewModels.Many
             get => Service.DateCreatedFrom;
             set
             {
-                if(Service.DateCreatedFrom != value)
+                if (Service.DateCreatedFrom != value)
                 {
                     Service.DateCreatedFrom = value;
                     OnPropertyChanged(() => DateCreatedFrom);
@@ -79,6 +68,6 @@ namespace ComputerRepairService.ViewModels.Many
                 ViewModelToBeOpened = new AddSupplierViewModel()
             });
         }
-   
+
     }
 }

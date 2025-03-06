@@ -1,16 +1,8 @@
-﻿using ComputerRepairService.Models.Dtos;
-using ComputerRepairService.Models.Servicess;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ComputerRepairService.Helpers;
 using ComputerRepairService.Models;
-using System.Windows.Input;
+using ComputerRepairService.Models.Dtos;
+using ComputerRepairService.Models.Servicess;
 using System.Collections.ObjectModel;
-using System.Diagnostics.Metrics;
-using System.IO;
-using ComputerRepairService.Helpers;
 namespace ComputerRepairService.ViewModels.Single
 {
     public class AddPartViewModel : BaseCreateViewModel<PartService, PartDto, Part>

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ComputerRepairService.Models.Dtos;
-using Microsoft.EntityFrameworkCore;
+﻿using ComputerRepairService.Models.Dtos;
 
 namespace ComputerRepairService.Models.Servicess
 {
@@ -19,7 +13,7 @@ namespace ComputerRepairService.Models.Servicess
                 DatabaseContext.JobStatuses.Add(model);
                 DatabaseContext.SaveChanges();
             }
-            else 
+            else
             {
                 UpdateModel(model);
             }
@@ -134,13 +128,13 @@ namespace ComputerRepairService.Models.Servicess
         }
         public override string ValidateProperty(string columnName, JobStatus model)
         {
-            if(columnName == nameof(JobStatus.StatusName))
+            if (columnName == nameof(JobStatus.StatusName))
             {
                 if (string.IsNullOrWhiteSpace(model.StatusName))
                 {
                     return "Status Name is required";
                 }
-                if(int.TryParse(model.StatusName,out _))
+                if (int.TryParse(model.StatusName, out _))
                 {
                     return "Status Name can't be number";
                 }

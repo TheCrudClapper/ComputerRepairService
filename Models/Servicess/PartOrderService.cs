@@ -1,22 +1,16 @@
 ﻿using ComputerRepairService.Models.Dtos;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 
 namespace ComputerRepairService.Models.Servicess
 {
     public class PartOrderService : BaseService<PartOrderDto, PartOrder>
     {
-        public decimal? UnitPriceFrom {  get; set; }
+        public decimal? UnitPriceFrom { get; set; }
         public decimal? UnitPriceTo { get; set; }
         public DateTime? DateCreatedFrom { get; set; }
         public DateTime? DateCreatedTo { get; set; }
-        public bool HasDeliveryDate {  get; set; }
+        public bool HasDeliveryDate { get; set; }
         public override void AddOrUpdateModel(PartOrder model)
         {
             if (model.Id == default)
@@ -66,7 +60,7 @@ namespace ComputerRepairService.Models.Servicess
             {
                 partOrders = partOrders.Where(item => item.DateCreated <= DateCreatedTo);
             }
-            if (UnitPriceFrom != null) 
+            if (UnitPriceFrom != null)
             {
                 partOrders = partOrders.Where(item => item.Part.UnitPrice >= UnitPriceFrom);
             }
@@ -130,22 +124,22 @@ namespace ComputerRepairService.Models.Servicess
         }
         public ObservableCollection<ComboBoxDto> InitializePartsComboBox()
         {
-            
-                IQueryable<ComboBoxDto> comboBoxDto = DatabaseContext.Parts.Where(item => item.IsActive).Select(item => new ComboBoxDto()
-                {
-                    Id = item.Id,
-                    Title = item.PartName,
-                });
-                return new ObservableCollection<ComboBoxDto>(comboBoxDto.ToList());
+
+            IQueryable<ComboBoxDto> comboBoxDto = DatabaseContext.Parts.Where(item => item.IsActive).Select(item => new ComboBoxDto()
+            {
+                Id = item.Id,
+                Title = item.PartName,
+            });
+            return new ObservableCollection<ComboBoxDto>(comboBoxDto.ToList());
         }
         public ObservableCollection<ComboBoxDto> InitializeSuppliersComboBox()
         {
-                IQueryable<ComboBoxDto> comboBoxDto = DatabaseContext.Suppliers.Where(item => item.IsActive).Select(item => new ComboBoxDto()
-                {
-                    Id = item.Id,
-                    Title = item.Title,
-                });
-                return new ObservableCollection<ComboBoxDto>(comboBoxDto.ToList());
+            IQueryable<ComboBoxDto> comboBoxDto = DatabaseContext.Suppliers.Where(item => item.IsActive).Select(item => new ComboBoxDto()
+            {
+                Id = item.Id,
+                Title = item.Title,
+            });
+            return new ObservableCollection<ComboBoxDto>(comboBoxDto.ToList());
         }
 
         public override List<SearchComboBoxDto> GetSearchComboBoxDtos()
@@ -196,21 +190,21 @@ namespace ComputerRepairService.Models.Servicess
         }
         public override string ValidateProperty(string columnName, PartOrder model)
         {
-            if(columnName == nameof(PartOrder.QuantityOrdered))
+            if (columnName == nameof(PartOrder.QuantityOrdered))
             {
                 string quantityAsString = model.QuantityOrdered.ToString();
-                if(!int.TryParse(quantityAsString, out _))
+                if (!int.TryParse(quantityAsString, out _))
                 {
                     return "Quantity can't be chars";
                 }
-                if(model.QuantityOrdered == default(int) || model.QuantityOrdered < 0)
+                if (model.QuantityOrdered == default(int) || model.QuantityOrdered < 0)
                 {
                     return "Quantity can't be 0 or lower";
                 }
             }
-            if(columnName == nameof(PartOrder.SupplierId))
+            if (columnName == nameof(PartOrder.SupplierId))
             {
-                if(model.SupplierId == default(int))
+                if (model.SupplierId == default(int))
                 {
                     return "Supplier is required !";
                 }
@@ -229,9 +223,9 @@ namespace ComputerRepairService.Models.Servicess
                     return "Cannot set date in past !";
                 }
             }
-            if(columnName == nameof(PartOrder.DeliveryDate))
+            if (columnName == nameof(PartOrder.DeliveryDate))
             {
-                if(model.DeliveryDate < DateOnly.FromDateTime(DateTime.Today))
+                if (model.DeliveryDate < DateOnly.FromDateTime(DateTime.Today))
                 {
                     return "Cannot set date in past";
                 }

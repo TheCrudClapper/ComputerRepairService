@@ -1,20 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ComputerRepairService.ViewResources;
-using ComputerRepairService.ViewModels.Single;
-using ComputerRepairService.Models.Servicess;
+﻿using ComputerRepairService.Helpers;
 using ComputerRepairService.Models;
 using ComputerRepairService.Models.Dtos;
-using ComputerRepairService.Models.Contexts;
+using ComputerRepairService.Models.Servicess;
+using ComputerRepairService.ViewModels.Single;
 using System.Collections.ObjectModel;
-using System.Windows.Input;
-using System.Diagnostics.Metrics;
-using System.IO;
-using ComputerRepairService.Helpers;
-using System.Windows;
 namespace ComputerRepairService.ViewModels
 {
     public class AddEmployeeViewModel : BaseCreateViewModel<EmployeeService, EmployeeDto, Employee>
@@ -48,26 +37,26 @@ namespace ComputerRepairService.ViewModels
             get => Model.RoleId;
             set
             {
-                if(Model.RoleId != value)
+                if (Model.RoleId != value)
                 {
                     Model.RoleId = value;
                     OnPropertyChanged(() => RoleId);
                 }
             }
         }
-        private ObservableCollection<ComboBoxDto> _Roles {get; set;}
+        private ObservableCollection<ComboBoxDto> _Roles { get; set; }
         public ObservableCollection<ComboBoxDto> Roles
         {
             get => _Roles;
             set
             {
-                if(_Roles != value)
+                if (_Roles != value)
                 {
                     _Roles = value;
                     OnPropertyChanged(() => Roles);
                 }
             }
-        }        
+        }
         public string? PhoneNumber
         {
             get => Model.PhoneNumber;
@@ -76,7 +65,7 @@ namespace ComputerRepairService.ViewModels
                 if (Model.PhoneNumber != value)
                 {
                     Model.PhoneNumber = value;
-                    OnPropertyChanged(()=>PhoneNumber);
+                    OnPropertyChanged(() => PhoneNumber);
                 }
             }
         }
@@ -85,10 +74,10 @@ namespace ComputerRepairService.ViewModels
             get => Model.Email;
             set
             {
-                if(Model.Email != value) 
+                if (Model.Email != value)
                 {
                     Model.Email = value;
-                    OnPropertyChanged(()=>Email);
+                    OnPropertyChanged(() => Email);
                 }
             }
         }
@@ -97,19 +86,19 @@ namespace ComputerRepairService.ViewModels
             get => Model.HireDate;
             set
             {
-                if(Model.HireDate != value)
+                if (Model.HireDate != value)
                 {
                     Model.HireDate = value;
                     OnPropertyChanged(() => HireDate);
                 }
             }
         }
-        public decimal Salary 
+        public decimal Salary
         {
             get => Model.Salary;
             set
             {
-                if(Model.Salary != value)
+                if (Model.Salary != value)
                 {
                     Model.Salary = value;
                     OnPropertyChanged(() => Salary);
@@ -122,7 +111,7 @@ namespace ComputerRepairService.ViewModels
             get => _NumberOfActiveEmployees;
             set
             {
-                if(_NumberOfActiveEmployees != value)
+                if (_NumberOfActiveEmployees != value)
                 {
                     _NumberOfActiveEmployees = value;
                     OnPropertyChanged(() => NumberOfActiveEmployees);
@@ -135,7 +124,7 @@ namespace ComputerRepairService.ViewModels
             Roles = Service.InitializeRolesComboBox();
             NumberOfActiveEmployees = Service.InitializeNumberOfActiveEmployees();
         }
-        public AddEmployeeViewModel(int id) : base(id,"New Employee")
+        public AddEmployeeViewModel(int id) : base(id, "New Employee")
         {
             ClearInputsCommand = new BaseCommand(() => ClearInputFields());
             Roles = Service.InitializeRolesComboBox();
@@ -151,6 +140,6 @@ namespace ComputerRepairService.ViewModels
             RoleId = default;
             HireDate = default;
         }
-        
+
     }
 }

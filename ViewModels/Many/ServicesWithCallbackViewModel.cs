@@ -1,11 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.Messaging;
 using ComputerRepairService.Helpers;
 using ComputerRepairService.Models.Dtos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ComputerRepairService.ViewModels.Many
 {
@@ -21,7 +16,7 @@ namespace ComputerRepairService.ViewModels.Many
         {
             //Send the callback with selected service
             //Selected model is the one from data grid
-            WeakReferenceMessenger.Default.Send<SelectedObjectMessage<ServiceDto>>(new SelectedObjectMessage<ServiceDto>(WhoRequestedToSelect,SelectedModel!));
+            WeakReferenceMessenger.Default.Send<SelectedObjectMessage<ServiceDto>>(new SelectedObjectMessage<ServiceDto>(WhoRequestedToSelect, SelectedModel!));
             OnRequestClose();
         }
     }

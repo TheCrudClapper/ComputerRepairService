@@ -2,12 +2,6 @@
 using ComputerRepairService.Models;
 using ComputerRepairService.Models.Dtos;
 using ComputerRepairService.Models.Servicess;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
 
 namespace ComputerRepairService.ViewModels.Single
 {
@@ -74,7 +68,7 @@ namespace ComputerRepairService.ViewModels.Single
             ClearInputsCommand = new BaseCommand(() => ClearInputFields());
             NumberOfActiveServices = Service.InitializeNumberOfActiveServices();
         }
-        public AddServiceViewModel(int id) : base(id,"Service")
+        public AddServiceViewModel(int id) : base(id, "Service")
         {
             ClearInputsCommand = new BaseCommand(() => ClearInputFields());
             NumberOfActiveServices = Service.InitializeNumberOfActiveServices();

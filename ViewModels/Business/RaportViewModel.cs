@@ -1,11 +1,6 @@
 ﻿using ComputerRepairService.Helpers;
 using ComputerRepairService.Models.BusinessObjects;
 using ComputerRepairService.Models.Servicess;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace ComputerRepairService.ViewModels.Business
@@ -13,27 +8,27 @@ namespace ComputerRepairService.ViewModels.Business
     public class RaportViewModel : WorkspaceViewModel
     {
         //creating service
-        
+
         private RaportService _raportService { get; set; } = null!;
         public ICommand GenerateCommand { get; set; }
         public ICommand ClearCommand { get; set; }
 
-        public string IsVisible {  get; set; }
+        public string IsVisible { get; set; }
         //creating mvvm properties
-        private RaportDto _Raport {  get; set; }
+        private RaportDto _Raport { get; set; }
         public RaportDto Raport
         {
             get => _Raport;
             set
             {
-                if(_Raport != value)
+                if (_Raport != value)
                 {
                     _Raport = value;
                     OnPropertyChanged(() => Raport);
                 }
             }
         }
-        
+
         public DateTime? DateFrom
         {
             get => _raportService.DateFrom;
@@ -45,7 +40,7 @@ namespace ComputerRepairService.ViewModels.Business
                     OnPropertyChanged(() => DateFrom);
                 }
             }
-            
+
         }
         public DateTime? DateTo
         {

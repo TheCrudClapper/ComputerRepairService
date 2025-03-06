@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ComputerRepairService.Models.Contexts;
 using ComputerRepairService.Models.Dtos;
 using Microsoft.EntityFrameworkCore;
-using ComputerRepairService.Models.Contexts;
 using System.Collections.ObjectModel;
-using System.Windows.Controls;
-using System.Windows;
 namespace ComputerRepairService.Models.Servicess
 {
     public class EmployeeService : BaseService<EmployeeDto, Employee>
@@ -65,7 +58,7 @@ namespace ComputerRepairService.Models.Servicess
                 }
 
             }
-            if (HasRole) 
+            if (HasRole)
             {
                 employees = employees.Where(item => item.Role != null);
             }
@@ -220,7 +213,7 @@ namespace ComputerRepairService.Models.Servicess
                     return "Hire Date is required";
                 }
                 //can't put date in past
-                if(model.HireDate < DateOnly.FromDateTime(DateTime.Now))
+                if (model.HireDate < DateOnly.FromDateTime(DateTime.Now))
                 {
                     return "Date can't be in past";
                 }
@@ -231,7 +224,7 @@ namespace ComputerRepairService.Models.Servicess
                 {
                     return "Salary can't be 0";
                 }
-                if(model.Salary < 4000)
+                if (model.Salary < 4000)
                 {
                     return "Salary can't be lower than 4000";
                 }
@@ -246,7 +239,7 @@ namespace ComputerRepairService.Models.Servicess
                     }
                 }
             }
-            else if(columnName == nameof(Employee.PhoneNumber))
+            else if (columnName == nameof(Employee.PhoneNumber))
             {
                 if (model.PhoneNumber != null)
                 {
@@ -263,6 +256,6 @@ namespace ComputerRepairService.Models.Servicess
             return string.Empty;
         }
 
-        }
     }
+}
 

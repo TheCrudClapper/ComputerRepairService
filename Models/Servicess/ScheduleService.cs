@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using ComputerRepairService.Models.Dtos;
+﻿using ComputerRepairService.Models.Dtos;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.ObjectModel;
 namespace ComputerRepairService.Models.Servicess
 {
     public class ScheduleService : BaseService<ScheduleDto, Schedule>
@@ -85,12 +79,12 @@ namespace ComputerRepairService.Models.Servicess
                 DateDeleted = item.DateDeleted,
                 IssueDescription = item.Job.IssueDescription,
                 EmployeeId = item.EmployeeId,
-                CustomerName = item.Job.Customer.FirstName + " " +  item.Job.Customer.Surname,
+                CustomerName = item.Job.Customer.FirstName + " " + item.Job.Customer.Surname,
                 EmployeeName = item.Employee.FirstName + " " + item.Employee.Surname,
                 EndDate = item.EndDate,
                 StartDate = item.StartDate,
                 JobId = item.JobId,
-                
+
             });
             switch (OrderProperty)
             {
@@ -182,7 +176,7 @@ namespace ComputerRepairService.Models.Servicess
                     PropertyTitle = nameof(Schedule.Job.Id),
                     DisplayName = "Job ID",
                 },
-                
+
             };
         }
     }

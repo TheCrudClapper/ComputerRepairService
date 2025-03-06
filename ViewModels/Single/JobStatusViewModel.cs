@@ -1,12 +1,6 @@
 ﻿using ComputerRepairService.Models;
 using ComputerRepairService.Models.Dtos;
 using ComputerRepairService.Models.Servicess;
-using ComputerRepairService.ViewModels.Many;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ComputerRepairService.ViewModels.Single
 {
@@ -17,7 +11,7 @@ namespace ComputerRepairService.ViewModels.Single
             get => Model.StatusName;
             set
             {
-                if(Model.StatusName != value)
+                if (Model.StatusName != value)
                 {
                     Model.StatusName = value;
                     OnPropertyChanged(() => StatusName);
@@ -53,7 +47,7 @@ namespace ComputerRepairService.ViewModels.Single
         {
             ActiveJobStatuses = Service.GetNumberOfActiveStatuses();
         }
-        public JobStatusViewModel(int id) : base(id,"Job Status")
+        public JobStatusViewModel(int id) : base(id, "Job Status")
         {
             ActiveJobStatuses = Service.GetNumberOfActiveStatuses();
         }

@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using ComputerRepairService.Models.Dtos;
+﻿using ComputerRepairService.Models.Dtos;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Logging;
+using System.Collections.ObjectModel;
 namespace ComputerRepairService.Models.Servicess
 {
     public class RepairJobService : BaseService<RepairJobDto, RepairJob>
@@ -59,7 +52,7 @@ namespace ComputerRepairService.Models.Servicess
             {
                 switch (SearchProperty)
                 {
-                    case nameof(RepairJobDto.CustomerName) :
+                    case nameof(RepairJobDto.CustomerName):
                         repairJob = repairJob.Where(item => item.Customer.Surname.Contains(SearchInput) || item.Customer.FirstName.Contains(SearchInput));
                         break;
                     case nameof(RepairJob.JobStatusNavigation.StatusName):
@@ -70,7 +63,7 @@ namespace ComputerRepairService.Models.Servicess
                         break;
                 }
             }
-            if(DateCreatedFrom != null)
+            if (DateCreatedFrom != null)
             {
                 repairJob = repairJob.Where(item => item.DateCreated >= DateCreatedFrom);
             }
@@ -80,7 +73,7 @@ namespace ComputerRepairService.Models.Servicess
             }
             if (TotalCostFrom != null)
             {
-                repairJob = repairJob.Where(item => item.TotalCost >=  TotalCostFrom);
+                repairJob = repairJob.Where(item => item.TotalCost >= TotalCostFrom);
             }
             if (TotalCostTo != null)
             {
@@ -160,12 +153,12 @@ namespace ComputerRepairService.Models.Servicess
         }
         public ObservableCollection<ComboBoxDto> InitializeJobStatusesComboBox()
         {
-               IQueryable<ComboBoxDto> JobStatuses = DatabaseContext.JobStatuses.Where(item => item.IsActive).Select(item => new ComboBoxDto()
-                {
-                    Id = item.Id,
-                    Title = item.StatusName
-                });
-                return new ObservableCollection<ComboBoxDto>(JobStatuses);
+            IQueryable<ComboBoxDto> JobStatuses = DatabaseContext.JobStatuses.Where(item => item.IsActive).Select(item => new ComboBoxDto()
+            {
+                Id = item.Id,
+                Title = item.StatusName
+            });
+            return new ObservableCollection<ComboBoxDto>(JobStatuses);
         }
         public string GetCustomerNameById(int customerId)
         {

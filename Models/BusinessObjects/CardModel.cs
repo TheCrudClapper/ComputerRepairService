@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO.Packaging;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
-
-namespace ComputerRepairService.Models.BusinessObjects
+﻿namespace ComputerRepairService.Models.BusinessObjects
 {
     public class CardModel
     {

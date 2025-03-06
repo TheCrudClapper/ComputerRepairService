@@ -1,6 +1,4 @@
 ﻿using ComputerRepairService.Models.BusinessObjects;
-using System;
-using System.Linq;
 
 namespace ComputerRepairService.Models.Servicess
 {
@@ -12,7 +10,7 @@ namespace ComputerRepairService.Models.Servicess
 
         public RaportDto GetRaportDto()
         {
-            
+
             IQueryable<RepairJob> repairJobs = DatabaseContext.RepairJobs.Where(item => item.IsActive);
             IQueryable<Invoice> invoices = DatabaseContext.Invoices.Where(item => item.IsActive);
             IQueryable<Feedback> feedback = DatabaseContext.Feedbacks.Where(item => item.IsActive);

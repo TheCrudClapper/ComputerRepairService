@@ -1,18 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using ComputerRepairService.Helpers;
+﻿using ComputerRepairService.Models;
 using ComputerRepairService.Models.Dtos;
-using ComputerRepairService.Models;
-using System.Threading.Tasks;
-using System.Collections.ObjectModel;
-using System.Windows.Input;
-using ComputerRepairService.Models.Contexts;
-using Microsoft.EntityFrameworkCore;
 using ComputerRepairService.Models.Servicess;
-using CommunityToolkit.Mvvm.Messaging;
-using ComputerRepairService.ViewModels.Single;
 
 namespace ComputerRepairService.ViewModels.Many
 {
@@ -61,7 +49,7 @@ namespace ComputerRepairService.ViewModels.Many
 
         protected override void CreateNew()
         {
-          
+
         }
     }
 }

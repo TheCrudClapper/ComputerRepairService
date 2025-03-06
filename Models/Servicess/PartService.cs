@@ -1,12 +1,6 @@
 ﻿using ComputerRepairService.Models.Dtos;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 
 namespace ComputerRepairService.Models.Servicess
 {
@@ -113,13 +107,13 @@ namespace ComputerRepairService.Models.Servicess
         }
         public ObservableCollection<ComboBoxDto> InitializePartCategoriesComboBox()
         {
-                IQueryable<PartCategory> partCategories = DatabaseContext.PartCategories.Where(item => item.IsActive);
-                IQueryable<ComboBoxDto> comboboxDto = partCategories.Select(item => new ComboBoxDto()
-                {
-                    Id = item.Id,
-                    Title = item.CategoryName,
-                });
-                return new ObservableCollection<ComboBoxDto>(comboboxDto);
+            IQueryable<PartCategory> partCategories = DatabaseContext.PartCategories.Where(item => item.IsActive);
+            IQueryable<ComboBoxDto> comboboxDto = partCategories.Select(item => new ComboBoxDto()
+            {
+                Id = item.Id,
+                Title = item.CategoryName,
+            });
+            return new ObservableCollection<ComboBoxDto>(comboboxDto);
         }
         public int InitializeNumberOfActiveParts()
         {
@@ -171,7 +165,7 @@ namespace ComputerRepairService.Models.Servicess
         }
         public override string ValidateProperty(string columnName, Part model)
         {
-            if(columnName == nameof(Part.PartName))
+            if (columnName == nameof(Part.PartName))
             {
                 if (string.IsNullOrEmpty(model.PartName))
                 {
@@ -180,7 +174,7 @@ namespace ComputerRepairService.Models.Servicess
             }
             if (columnName == nameof(Part.UnitPrice))
             {
-                if(model.UnitPrice <= 0)
+                if (model.UnitPrice <= 0)
                 {
                     return "Price can't be 0 or negative";
                 }

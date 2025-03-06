@@ -1,16 +1,8 @@
-﻿using ComputerRepairService.Models;
-using ComputerRepairService.Models.Contexts;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
+﻿using CommunityToolkit.Mvvm.Messaging;
+using ComputerRepairService.Helpers;
+using ComputerRepairService.Models;
 using ComputerRepairService.Models.Dtos;
 using ComputerRepairService.Models.Servicess;
-using CommunityToolkit.Mvvm.Messaging;
-using ComputerRepairService.Helpers;
 using ComputerRepairService.ViewModels.Single;
 namespace ComputerRepairService.ViewModels.Many
 {
@@ -22,7 +14,7 @@ namespace ComputerRepairService.ViewModels.Many
             set
             {
                 if (Service.ServicePartCostFrom != value)
-                { 
+                {
                     Service.ServicePartCostFrom = value;
                     OnPropertyChanged(() => ServicePartCostFrom);
                 }

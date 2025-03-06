@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using ComputerRepairService.Models.Dtos;
+﻿using ComputerRepairService.Models.Dtos;
 using Microsoft.EntityFrameworkCore;
 namespace ComputerRepairService.Models.Servicess
 {
@@ -97,7 +91,7 @@ namespace ComputerRepairService.Models.Servicess
         public decimal GetPartCostByPartId(int partId)
         {
             return DatabaseContext.Parts.Where(item => item.Id == partId).Select(item => item.UnitPrice).First();
-        } 
+        }
         public int GetPartAvailableQuantity(int partId)
         {
             return DatabaseContext.Parts.Where(item => item.Id == partId).Select(item => item.QuantityInStock).First();
@@ -108,7 +102,7 @@ namespace ComputerRepairService.Models.Servicess
         {
             var part = DatabaseContext.Parts.First(item => item.Id == partId);
             part.QuantityInStock -= quantityUsed;
-            DatabaseContext.SaveChanges(); 
+            DatabaseContext.SaveChanges();
         }
 
         //Adds back quantity of parts to database, when part is deleted from JobPart

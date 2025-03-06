@@ -1,30 +1,23 @@
-﻿using ComputerRepairService.Models.Dtos;
+﻿using ComputerRepairService.Helpers;
+using ComputerRepairService.Models.Dtos;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq.Expressions;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Collections.ObjectModel;
-using ComputerRepairService.Helpers;
 
 namespace ComputerRepairService.Models.Servicess
 {
     public class CustomerService : BaseService<CustomerDto, Customer>
     {
-        public DateTime? DateCreatedFrom {  get; set; }
+        public DateTime? DateCreatedFrom { get; set; }
         public DateTime? DateCreatedTo { get; set; }
         public bool HasNip { get; set; }
         public YesNoEnum HasPhoneNumber { get; set; }
         public CustomerService()
         {
-            
+
         }
         public override void AddOrUpdateModel(Customer model)
         {
-            if(model.Id == default)
+            if (model.Id == default)
             {
                 DatabaseContext.Customers.Add(model);
                 DatabaseContext.SaveChanges();
@@ -51,7 +44,7 @@ namespace ComputerRepairService.Models.Servicess
         public override List<CustomerDto> GetModels()
         {
             IQueryable<Customer> customers = DatabaseContext.Customers.Include(item => item.Address).Where(item => item.IsActive);
-            if(!string.IsNullOrEmpty(SearchInput))
+            if (!string.IsNullOrEmpty(SearchInput))
             {
                 switch (SearchProperty)
                 {
@@ -66,24 +59,24 @@ namespace ComputerRepairService.Models.Servicess
                         break;
                 }
             }
-            if(HasNip)
+            if (HasNip)
             {
                 customers = customers.Where(item => !string.IsNullOrEmpty(item.Nip));
             }
-            switch(HasPhoneNumber)
-            { 
-                case YesNoEnum.Yes :
-                        customers = customers.Where(item => !string.IsNullOrEmpty(item.PhoneNumber));
-                        break;
-                case YesNoEnum.No :
-                        customers = customers.Where(item => string.IsNullOrEmpty(item.PhoneNumber));
-                        break;
+            switch (HasPhoneNumber)
+            {
+                case YesNoEnum.Yes:
+                    customers = customers.Where(item => !string.IsNullOrEmpty(item.PhoneNumber));
+                    break;
+                case YesNoEnum.No:
+                    customers = customers.Where(item => string.IsNullOrEmpty(item.PhoneNumber));
+                    break;
             }
             if (DateCreatedFrom != null)
             {
                 customers = customers.Where(item => item.DateCreated >= DateCreatedFrom);
             }
-            if(DateCreatedTo != null)
+            if (DateCreatedTo != null)
             {
                 customers = customers.Where(item => item.DateCreated <= DateCreatedTo);
             }
@@ -229,7 +222,7 @@ namespace ComputerRepairService.Models.Servicess
                 {
                     return "Postal City is required";
                 }
-                if(int.TryParse(model.Address.PostalCity, out _)) 
+                if (int.TryParse(model.Address.PostalCity, out _))
                 {
                     return "Postal City cannot be number";
                 }
@@ -254,7 +247,7 @@ namespace ComputerRepairService.Models.Servicess
             {
                 if (model.PhoneNumber != null)
                 {
-                    if (!int.TryParse(model.PhoneNumber,out _))
+                    if (!int.TryParse(model.PhoneNumber, out _))
                     {
                         return "Use only numbers";
                     }

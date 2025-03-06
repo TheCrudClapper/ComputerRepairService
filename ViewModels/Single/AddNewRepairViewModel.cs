@@ -6,7 +6,6 @@ using ComputerRepairService.Models.Servicess;
 using ComputerRepairService.ViewModels.Many;
 using System.Collections.ObjectModel;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace ComputerRepairService.ViewModels.Single
@@ -25,7 +24,7 @@ namespace ComputerRepairService.ViewModels.Single
         public ICommand AddJobServiceCommand { get; set; }
         public ICommand DeleteJobServiceCommand { get; set; }
         public ICommand DeleteJobPartCommand { get; set; }
-        public ICommand RefreshJobServicesCommand {  get; set; }
+        public ICommand RefreshJobServicesCommand { get; set; }
         public ICommand RefreshJobPartsCommand { get; set; }
         public ICommand SelectRepairJobCommand { get; set; }
         public ICommand SelectCustomerCommand { get; set; }
@@ -95,7 +94,7 @@ namespace ComputerRepairService.ViewModels.Single
             get => _CustomerName;
             set
             {
-                if(_CustomerName != value)
+                if (_CustomerName != value)
                 {
                     _CustomerName = value;
                     OnPropertyChanged(() => CustomerName);
@@ -128,7 +127,7 @@ namespace ComputerRepairService.ViewModels.Single
         }
         private ObservableCollection<ComboBoxDto> _JobStatuses { get; set; }
         public ObservableCollection<ComboBoxDto> JobStatuses
-        {   
+        {
             get => _JobStatuses;
             set
             {
@@ -145,7 +144,7 @@ namespace ComputerRepairService.ViewModels.Single
             get => _JobServices;
             set
             {
-                if(_JobServices != value)
+                if (_JobServices != value)
                 {
                     _JobServices = value;
                     OnPropertyChanged(() => JobServices);
@@ -158,7 +157,7 @@ namespace ComputerRepairService.ViewModels.Single
             get => _JobParts;
             set
             {
-                if(_JobParts != value)
+                if (_JobParts != value)
                 {
                     _JobParts = value;
                     OnPropertyChanged(() => JobParts);
@@ -275,7 +274,7 @@ namespace ComputerRepairService.ViewModels.Single
         //method that gets selected repair job and assigns values to fields
         private void GetSelectedRepairJob(SelectedObjectMessage<RepairJobDto> message)
         {
-            if(message.WhoRequestedToSelect == this)
+            if (message.WhoRequestedToSelect == this)
             {
                 SelectedRepairJobId = message.SelectedObject.Id;
             }
@@ -293,7 +292,7 @@ namespace ComputerRepairService.ViewModels.Single
         //function that gets selected customer and assigns values to fields
         private void GetSelectedCustomer(SelectedObjectMessage<CustomerDto> message)
         {
-            if(message.WhoRequestedToSelect == this)
+            if (message.WhoRequestedToSelect == this)
             {
                 CustomerId = message.SelectedObject.Id;
                 //this only works when we add new customer
@@ -306,7 +305,7 @@ namespace ComputerRepairService.ViewModels.Single
         {
             if (SelectedRepairJobId.HasValue)
             {
-                var (servicesCost, partsCost, totalCost)= Service.CalculateTotalCosts(SelectedRepairJobId.Value);
+                var (servicesCost, partsCost, totalCost) = Service.CalculateTotalCosts(SelectedRepairJobId.Value);
                 TotalCost = totalCost;
                 TotalPartsCost = partsCost;
                 TotalServicesCost = servicesCost;
@@ -321,7 +320,7 @@ namespace ComputerRepairService.ViewModels.Single
         }
         public void DeleteJobPart()
         {
-            if(SelectedJobPartDto != null)
+            if (SelectedJobPartDto != null)
             {
                 _JobPartService.RevertUsedPart(SelectedJobPartDto.PartId, SelectedJobPartDto.QuantityUsed);
                 _JobPartService.DeleteModel(SelectedJobPartDto);
@@ -332,7 +331,7 @@ namespace ComputerRepairService.ViewModels.Single
         }
         public void DeleteJobService()
         {
-            if(SelectedJobServiceDto != null)
+            if (SelectedJobServiceDto != null)
             {
                 _JobServiceService.DeleteModel(SelectedJobServiceDto);
                 JobServices.Remove(SelectedJobServiceDto);
@@ -389,5 +388,5 @@ namespace ComputerRepairService.ViewModels.Single
                 MessageBox.Show("Please, first choose repair !", "Select Repair!");
             }
         }
-   }
+    }
 }

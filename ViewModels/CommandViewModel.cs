@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 namespace ComputerRepairService.ViewModels
 {
     /// <summary>
     /// This is class for element of side bar
     /// </summary>
-    public class CommandViewModel:BaseViewModel
+    public class CommandViewModel : BaseViewModel
     {
         #region FieldAndProperties
 

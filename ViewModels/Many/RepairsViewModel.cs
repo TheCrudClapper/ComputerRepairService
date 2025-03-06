@@ -4,11 +4,6 @@ using ComputerRepairService.Models;
 using ComputerRepairService.Models.Dtos;
 using ComputerRepairService.Models.Servicess;
 using ComputerRepairService.ViewModels.Single;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ComputerRepairService.ViewModels.Many
 {
@@ -25,7 +20,7 @@ namespace ComputerRepairService.ViewModels.Many
                     Service.TotalCostFrom = value;
                     OnPropertyChanged(() => TotalCostFrom);
                 }
-            }   
+            }
         }
         public decimal? TotalCostTo
         {
@@ -66,7 +61,7 @@ namespace ComputerRepairService.ViewModels.Many
 
         public RepairsViewModel() : base("Repairs")
         {
-            
+
         }
 
         protected override void ClearFilters()

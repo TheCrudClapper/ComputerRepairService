@@ -1,23 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ComputerRepairService.Models;
 using ComputerRepairService.Models.Dtos;
 using ComputerRepairService.Models.Servicess;
 using ComputerRepairService.ViewModels.Single;
-using ComputerRepairService.Models;
-using ComputerRepairService.ViewResources;
 using System.Collections.ObjectModel;
-using System.Windows.Input;
-using ComputerRepairService.Helpers;
-using System.Windows;
 
 namespace ComputerRepairService.ViewModels
 {
     public class AddCustomerViewModel : BaseCreateViewModel<CustomerService, CustomerDto, Customer>
     {
-        
+
         public string FirstName
         {
             get => Model.FirstName;
@@ -168,20 +159,20 @@ namespace ComputerRepairService.ViewModels
             get => _numberOfActiveCustomers;
             set
             {
-                if(_numberOfActiveCustomers != value)
+                if (_numberOfActiveCustomers != value)
                 {
                     _numberOfActiveCustomers = value;
                     OnPropertyChanged(() => NumberOfActiveCustomers);
                 }
             }
         }
-        private ObservableCollection<string> _Countries {  get; set; }
+        private ObservableCollection<string> _Countries { get; set; }
         public ObservableCollection<string> Countries
         {
             get => _Countries;
             set
             {
-                if(_Countries != value)
+                if (_Countries != value)
                 {
                     _Countries = value;
                     OnPropertyChanged(() => Countries);

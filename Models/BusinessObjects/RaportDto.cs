@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ComputerRepairService.Models.BusinessObjects
+﻿namespace ComputerRepairService.Models.BusinessObjects
 {
     public class RaportDto
     {

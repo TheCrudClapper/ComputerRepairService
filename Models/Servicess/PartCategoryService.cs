@@ -1,18 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using ComputerRepairService.Models.Dtos;
-using Microsoft.EntityFrameworkCore;
+﻿using ComputerRepairService.Models.Dtos;
 namespace ComputerRepairService.Models.Servicess
 {
     public class PartCategoryService : BaseService<PartCategoryDto, PartCategory>
     {
         public bool HasDescription { get; set; }
         public DateTime? DateCreatedFrom { get; set; }
-        public DateTime? DateCreatedTo {  get; set; }
+        public DateTime? DateCreatedTo { get; set; }
 
         public override void AddOrUpdateModel(PartCategory model)
         {
@@ -54,7 +47,7 @@ namespace ComputerRepairService.Models.Servicess
                         partCategories = partCategories.Where(item => item.CategoryDescription.Contains(SearchInput));
                         break;
                     case nameof(PartCategory.Id):
-                        partCategories = partCategories.Where(item => item.Id + ""  == SearchInput);
+                        partCategories = partCategories.Where(item => item.Id + "" == SearchInput);
                         break;
                 }
             }
@@ -81,7 +74,7 @@ namespace ComputerRepairService.Models.Servicess
             switch (OrderProperty)
             {
                 case nameof(PartCategory.CategoryName):
-                    partCategoryDtos = OrderAscending ?  partCategoryDtos.OrderBy(item => item.CategoryName) : partCategoryDtos.OrderByDescending(item => item.CategoryName);
+                    partCategoryDtos = OrderAscending ? partCategoryDtos.OrderBy(item => item.CategoryName) : partCategoryDtos.OrderByDescending(item => item.CategoryName);
                     break;
                 case nameof(PartCategory.DateCreated):
                     partCategoryDtos = OrderAscending ? partCategoryDtos.OrderBy(item => item.DateCreated) : partCategoryDtos.OrderByDescending(item => item.DateCreated);
@@ -157,7 +150,7 @@ namespace ComputerRepairService.Models.Servicess
         }
         public override string ValidateProperty(string columnName, PartCategory model)
         {
-            if(columnName == nameof(PartCategory.CategoryName))
+            if (columnName == nameof(PartCategory.CategoryName))
             {
                 if (string.IsNullOrWhiteSpace(model.CategoryName))
                 {

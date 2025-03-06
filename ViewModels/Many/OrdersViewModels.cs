@@ -1,22 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using CommunityToolkit.Mvvm.Messaging;
+using ComputerRepairService.Helpers;
 using ComputerRepairService.Models;
 using ComputerRepairService.Models.Dtos;
-using ComputerRepairService.Models.Contexts;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using Microsoft.EntityFrameworkCore;
-using ComputerRepairService.Helpers;
 using ComputerRepairService.Models.Servicess;
-using CommunityToolkit.Mvvm.Messaging;
 using ComputerRepairService.ViewModels.Single;
 namespace ComputerRepairService.ViewModels.Many
 {
     public class OrdersViewModels : BaseManyViewModel<PartOrderService, PartOrderDto, PartOrder>
-    { 
+    {
         public DateTime? DateCreatedFrom
         {
             get => Service.DateCreatedFrom;
@@ -58,7 +49,7 @@ namespace ComputerRepairService.ViewModels.Many
             get => Service.UnitPriceTo;
             set
             {
-                if(Service.UnitPriceTo != value)
+                if (Service.UnitPriceTo != value)
                 {
                     Service.UnitPriceTo = value;
                     OnPropertyChanged(() => UnitPriceTo);
@@ -70,7 +61,7 @@ namespace ComputerRepairService.ViewModels.Many
             get => Service.HasDeliveryDate;
             set
             {
-                if(Service.HasDeliveryDate != value)
+                if (Service.HasDeliveryDate != value)
                 {
                     Service.HasDeliveryDate = value;
                     OnPropertyChanged(() => HasDeliveryDate);
@@ -79,7 +70,7 @@ namespace ComputerRepairService.ViewModels.Many
         }
         public OrdersViewModels() : base("Orders")
         {
-            
+
         }
 
         protected override void ClearFilters()
@@ -114,6 +105,6 @@ namespace ComputerRepairService.ViewModels.Many
                 ViewModelToBeOpened = new AddOrderViewModel()
             });
         }
-       
+
     }
 }

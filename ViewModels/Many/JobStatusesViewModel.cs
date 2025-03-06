@@ -1,13 +1,8 @@
-﻿using ComputerRepairService.Models.Dtos;
-using ComputerRepairService.Models.Servicess;
-using ComputerRepairService.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CommunityToolkit.Mvvm.Messaging;
+﻿using CommunityToolkit.Mvvm.Messaging;
 using ComputerRepairService.Helpers;
+using ComputerRepairService.Models;
+using ComputerRepairService.Models.Dtos;
+using ComputerRepairService.Models.Servicess;
 using ComputerRepairService.ViewModels.Single;
 
 namespace ComputerRepairService.ViewModels.Many
@@ -39,21 +34,21 @@ namespace ComputerRepairService.ViewModels.Many
                 }
             }
         }
-        
+
         public JobStatusesViewModel() : base("Job Statuses")
         {
-            
+
         }
 
         protected override void ClearFilters()
         {
-           DateCreatedFrom = null;
-           DateCreatedTo = null;
-           SearchInput = null;
-           SearchProperty = SearchComboBoxDto.FirstOrDefault()?.PropertyTitle;
-           OrderProperty = OrderComboBoxDto.FirstOrDefault()?.PropertyTitle;
-           OrderAscending = false;
-           Refresh();
+            DateCreatedFrom = null;
+            DateCreatedTo = null;
+            SearchInput = null;
+            SearchProperty = SearchComboBoxDto.FirstOrDefault()?.PropertyTitle;
+            OrderProperty = OrderComboBoxDto.FirstOrDefault()?.PropertyTitle;
+            OrderAscending = false;
+            Refresh();
         }
 
         protected override void CreateNew()

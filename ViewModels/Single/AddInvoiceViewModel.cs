@@ -1,16 +1,11 @@
-﻿using ComputerRepairService.Models.Dtos;
-using ComputerRepairService.Models.Servicess;
+﻿using CommunityToolkit.Mvvm.Messaging;
+using ComputerRepairService.Helpers;
 using ComputerRepairService.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ComputerRepairService.Models.Dtos;
+using ComputerRepairService.Models.Servicess;
+using ComputerRepairService.ViewModels.Many;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
-using ComputerRepairService.Helpers;
-using CommunityToolkit.Mvvm.Messaging;
-using ComputerRepairService.ViewModels.Many;
 
 namespace ComputerRepairService.ViewModels.Single
 {

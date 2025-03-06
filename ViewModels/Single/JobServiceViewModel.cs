@@ -1,15 +1,10 @@
-﻿using ComputerRepairService.Models.Dtos;
-using ComputerRepairService.Models.Servicess;
-using ComputerRepairService.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CommunityToolkit.Mvvm.Messaging;
+﻿using CommunityToolkit.Mvvm.Messaging;
 using ComputerRepairService.Helpers;
-using System.Windows.Input;
+using ComputerRepairService.Models;
+using ComputerRepairService.Models.Dtos;
+using ComputerRepairService.Models.Servicess;
 using ComputerRepairService.ViewModels.Many;
+using System.Windows.Input;
 
 namespace ComputerRepairService.ViewModels.Single
 {
@@ -21,7 +16,7 @@ namespace ComputerRepairService.ViewModels.Single
             get => Model.JobId;
             set
             {
-                if (Model.JobId != value) 
+                if (Model.JobId != value)
                 {
                     Model.JobId = value;
                     OnPropertyChanged(() => JobId);
@@ -54,7 +49,7 @@ namespace ComputerRepairService.ViewModels.Single
             }
         }
 
-        private string? _ServiceName {  get; set; }
+        private string? _ServiceName { get; set; }
         public string? ServiceName
         {
             get => _ServiceName;
@@ -122,7 +117,7 @@ namespace ComputerRepairService.ViewModels.Single
         }
         private void GetSelectedService(SelectedObjectMessage<ServiceDto> message)
         {
-            if(message.WhoRequestedToSelect == this)
+            if (message.WhoRequestedToSelect == this)
             {
                 ServiceId = message.SelectedObject.Id;
                 ServiceName = message.SelectedObject.ServiceName;

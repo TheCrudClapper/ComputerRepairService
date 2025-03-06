@@ -1,18 +1,8 @@
-﻿using ComputerRepairService.Models.Contexts;
-using Microsoft.EntityFrameworkCore.Storage;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ComputerRepairService.Models.Dtos;
-using System.Windows.Input;
+﻿using CommunityToolkit.Mvvm.Messaging;
 using ComputerRepairService.Helpers;
 using ComputerRepairService.Models;
-using Microsoft.EntityFrameworkCore;
+using ComputerRepairService.Models.Dtos;
 using ComputerRepairService.Models.Servicess;
-using CommunityToolkit.Mvvm.Messaging;
 namespace ComputerRepairService.ViewModels.Many
 {
     public class CustomersViewModel : BaseManyViewModel<CustomerService, CustomerDto, Customer>
@@ -25,7 +15,7 @@ namespace ComputerRepairService.ViewModels.Many
                 if (Service.HasNip != value)
                 {
                     Service.HasNip = value;
-                    OnPropertyChanged(() =>  HasNip);
+                    OnPropertyChanged(() => HasNip);
                 }
             }
         }
@@ -93,7 +83,7 @@ namespace ComputerRepairService.ViewModels.Many
         }
         protected override void HandleSelect()
         {
-            if(SelectedModel != null)
+            if (SelectedModel != null)
             {
                 WeakReferenceMessenger.Default.Send<OpenViewMessage>(new OpenViewMessage()
                 {

@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using ComputerRepairService.Models.Dtos;
+﻿using ComputerRepairService.Models.Dtos;
 namespace ComputerRepairService.Models.Servicess
 {
     public class ServiceService : BaseService<ServiceDto, Service>
     {
-       public decimal? ServicePartCostFrom {  get; set; }
-       public decimal? ServicePartCostTo { get; set; }
-       public override void AddOrUpdateModel(Service model)
+        public decimal? ServicePartCostFrom { get; set; }
+        public decimal? ServicePartCostTo { get; set; }
+        public override void AddOrUpdateModel(Service model)
         {
             if (model.Id == default)
             {
@@ -51,16 +45,16 @@ namespace ComputerRepairService.Models.Servicess
                         service = service.Where(item => item.ServiceDescription.Contains(SearchInput));
                         break;
                 }
-            } 
-            if(ServicePartCostFrom != null)
+            }
+            if (ServicePartCostFrom != null)
             {
                 service = service.Where(item => item.BasePrice >= ServicePartCostFrom);
             }
-            if (ServicePartCostTo != null) 
-            { 
+            if (ServicePartCostTo != null)
+            {
                 service = service.Where(item => item.BasePrice <= ServicePartCostTo);
             }
-            
+
             IQueryable<ServiceDto> serviceDtos = service.Select(item => new ServiceDto()
             {
                 Id = item.Id,
@@ -99,7 +93,7 @@ namespace ComputerRepairService.Models.Servicess
             DatabaseContext.Services.Update(model);
             DatabaseContext.SaveChanges();
         }
-        public  int InitializeNumberOfActiveServices()
+        public int InitializeNumberOfActiveServices()
         {
             return DatabaseContext.Services.Where(item => item.IsActive).Count();
         }
@@ -150,7 +144,7 @@ namespace ComputerRepairService.Models.Servicess
                 {
                     return "Service Name is required";
                 }
-                if(int.TryParse(model.ServiceName, out _))
+                if (int.TryParse(model.ServiceName, out _))
                 {
                     return "Service Name can't be number";
                 }

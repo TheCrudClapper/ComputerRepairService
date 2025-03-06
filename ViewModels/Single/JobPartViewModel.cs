@@ -1,20 +1,15 @@
-﻿using ComputerRepairService.Models.Dtos;
-using ComputerRepairService.Models.Servicess;
-using ComputerRepairService.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CommunityToolkit.Mvvm.Messaging;
+﻿using CommunityToolkit.Mvvm.Messaging;
 using ComputerRepairService.Helpers;
-using System.Windows.Input;
+using ComputerRepairService.Models;
+using ComputerRepairService.Models.Dtos;
+using ComputerRepairService.Models.Servicess;
 using ComputerRepairService.ViewModels.Many;
 using System.Windows;
+using System.Windows.Input;
 
 namespace ComputerRepairService.ViewModels.Single
 {
-    public class JobPartViewModel : BaseCreateViewModel<JobPartService, JobPartDto,  JobPart>
+    public class JobPartViewModel : BaseCreateViewModel<JobPartService, JobPartDto, JobPart>
     {
         public ICommand SelectPartCommand { get; set; }
         public int JobId
@@ -164,9 +159,9 @@ namespace ComputerRepairService.ViewModels.Single
                 MessageBox.Show("Error on save", "Error");
             }
         }
-        public void GetSelectedPart(SelectedObjectMessage<PartDto>  message)
+        public void GetSelectedPart(SelectedObjectMessage<PartDto> message)
         {
-            if(message.WhoRequestedToSelect == this)
+            if (message.WhoRequestedToSelect == this)
             {
                 PartId = message.SelectedObject.Id;
                 PartName = message.SelectedObject.PartName;

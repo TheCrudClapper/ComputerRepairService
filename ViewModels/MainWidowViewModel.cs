@@ -1,21 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using CommunityToolkit.Mvvm.Messaging;
+using ComputerRepairService.Helpers;
+using ComputerRepairService.ViewModels.Business;
+using ComputerRepairService.ViewModels.Many;
+using ComputerRepairService.ViewModels.Single;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Data;
 using System.Windows.Input;
-using ComputerRepairService.Helpers;
-using ComputerRepairService.ViewModels;
-using ComputerRepairService.ViewModels.Many;
-using ComputerRepairService.ViewModels.Single;
-using CommunityToolkit.Mvvm.Messaging;
-using ComputerRepairService.ViewModels.Business;
 
 namespace ComputerRepairService.ViewModels
 {
@@ -44,7 +38,7 @@ namespace ComputerRepairService.ViewModels
         public ICommand OpenAddNewRepairView { get => new BaseCommand(() => CreateView(new AddNewRepairViewModel())); }
         public ICommand OpenAddScheduleView { get => new BaseCommand(() => CreateView(new AddScheduleViewModel())); }
         public ICommand OpenManageSchedulesView { get => new BaseCommand(() => CreateView(new SchedulesViewModel())); }
-        public ICommand OpenDashboardView{ get => new BaseCommand(() => CreateView(new DashboardViewModel())); }
+        public ICommand OpenDashboardView { get => new BaseCommand(() => CreateView(new DashboardViewModel())); }
         public ICommand OpenRaportView { get => new BaseCommand(() => CreateView(new RaportViewModel())); }
         public ICommand OpenJobStatusesView { get => new BaseCommand(() => CreateView(new JobStatusesViewModel())); }
         public ICommand OpenJobStatus { get => new BaseCommand(() => CreateView(new JobStatusViewModel())); }

@@ -4,15 +4,7 @@ using ComputerRepairService.Models;
 using ComputerRepairService.Models.Dtos;
 using ComputerRepairService.Models.Servicess;
 using ComputerRepairService.ViewModels.Many;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Diagnostics.Metrics;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace ComputerRepairService.ViewModels.Single
@@ -80,13 +72,13 @@ namespace ComputerRepairService.ViewModels.Single
                 }
             }
         }
-        private ObservableCollection<ComboBoxDto> _Employees {  get; set; }
+        private ObservableCollection<ComboBoxDto> _Employees { get; set; }
         public ObservableCollection<ComboBoxDto> Employees
         {
             get => _Employees;
             set
             {
-                if(_Employees != value)
+                if (_Employees != value)
                 {
                     _Employees = value;
                     OnPropertyChanged(() => Employees);
@@ -115,7 +107,7 @@ namespace ComputerRepairService.ViewModels.Single
             ClearInputsCommand = new BaseCommand(() => ClearInputFields());
             Employees = Service.InitializeEmployeesComboBox();
             SelectRepairJobCommand = new BaseCommand(() => SelectRepairJob());
-            WeakReferenceMessenger.Default.Register<SelectedObjectMessage<RepairJobDto>>(this,(recipient, message) => GetSelectedRepairJob(message));
+            WeakReferenceMessenger.Default.Register<SelectedObjectMessage<RepairJobDto>>(this, (recipient, message) => GetSelectedRepairJob(message));
         }
         public AddScheduleViewModel(int id) : base(id, "Schedule")
         {
@@ -135,7 +127,7 @@ namespace ComputerRepairService.ViewModels.Single
         }
         private void GetSelectedRepairJob(SelectedObjectMessage<RepairJobDto> message)
         {
-            if(message.WhoRequestedToSelect == this)
+            if (message.WhoRequestedToSelect == this)
             {
                 JobId = message.SelectedObject.Id;
             }

@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using ComputerRepairService.Models.Dtos;
+﻿using ComputerRepairService.Models.Dtos;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.ObjectModel;
 namespace ComputerRepairService.Models.Servicess
 {
     public class InvoiceService : BaseService<InvoiceDto, Invoice>
@@ -140,7 +134,7 @@ namespace ComputerRepairService.Models.Servicess
             .Sum(item => item.Cost);
 
             decimal? totalCost = totalServicesCost + totalPartsCost;
-            return(totalCost.GetValueOrDefault(), totalPartsCost, totalServicesCost);
+            return (totalCost.GetValueOrDefault(), totalPartsCost, totalServicesCost);
         }
         public ObservableCollection<string> InitializePaymentStatuses()
         {
@@ -225,9 +219,9 @@ namespace ComputerRepairService.Models.Servicess
         }
         public override string ValidateProperty(string columnName, Invoice model)
         {
-            if(columnName == nameof(Invoice.DateOfIssue))
+            if (columnName == nameof(Invoice.DateOfIssue))
             {
-                if(model.DateOfIssue == default(DateTime))
+                if (model.DateOfIssue == default(DateTime))
                 {
                     return "DateOfIssue is required";
                 }
@@ -236,16 +230,16 @@ namespace ComputerRepairService.Models.Servicess
                     return "Can't set date in past";
                 }
             }
-            if(columnName == nameof(Invoice.PaymentStatus))
+            if (columnName == nameof(Invoice.PaymentStatus))
             {
                 if (string.IsNullOrWhiteSpace(model.PaymentStatus))
                 {
                     return "Payment Status is required";
                 }
             }
-            if(columnName == nameof(Invoice.TotalCost))
+            if (columnName == nameof(Invoice.TotalCost))
             {
-                if(model.TotalCost == default)
+                if (model.TotalCost == default)
                 {
                     return "Total cost is required";
                 }

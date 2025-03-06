@@ -1,21 +1,15 @@
 ﻿using ComputerRepairService.Models.Dtos;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 
 namespace ComputerRepairService.Models.Servicess
 {
     //this class implementation need to be ended
     public class JobServiceService : BaseService<JobServiceDto, JobService>
     {
-        
+
         public override void AddOrUpdateModel(JobService model)
         {
-            if(model.Id == default)
+            if (model.Id == default)
             {
                 DatabaseContext.JobServices.Add(model);
                 DatabaseContext.SaveChanges();

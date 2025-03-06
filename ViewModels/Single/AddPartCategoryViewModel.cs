@@ -1,16 +1,8 @@
-﻿using ComputerRepairService.Models.Dtos;
+﻿using ComputerRepairService.Helpers;
+using ComputerRepairService.Models;
+using ComputerRepairService.Models.Dtos;
 using ComputerRepairService.Models.Servicess;
 using ComputerRepairService.ViewModels.Single;
-using ComputerRepairService.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using System.Diagnostics.Metrics;
-using System.IO;
-using ComputerRepairService.Helpers;
 
 namespace ComputerRepairService.ViewModels
 {
@@ -58,7 +50,8 @@ namespace ComputerRepairService.ViewModels
         {
             ClearInputsCommand = new BaseCommand(() => ClearInputFields());
             NumberOfActiveCategories = Service.InitializeNumberOfActivePartCategories();
-        } public AddPartCategoryViewModel(int id) : base(id,"Category")
+        }
+        public AddPartCategoryViewModel(int id) : base(id, "Category")
         {
             ClearInputsCommand = new BaseCommand(() => ClearInputFields());
             NumberOfActiveCategories = Service.InitializeNumberOfActivePartCategories();

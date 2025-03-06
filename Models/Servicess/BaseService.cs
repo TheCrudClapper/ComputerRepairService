@@ -1,10 +1,4 @@
 ﻿using ComputerRepairService.Models.Contexts;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ComputerRepairService.Models.Dtos;
 namespace ComputerRepairService.Models.Servicess
 {
@@ -35,7 +29,7 @@ namespace ComputerRepairService.Models.Servicess
         public virtual ModelType CreateModel()
         {
             return new ModelType();
-        } 
+        }
         /// </summary>
         /// <param name="columnName">Name of control that we are validating (name in binding)</param>
         /// <returns>Returns String.Empty if no errors or the error</returns>
@@ -46,7 +40,7 @@ namespace ComputerRepairService.Models.Servicess
         }
         public bool isValid(ModelType model)
         {
-            return !typeof(ModelType).GetProperties().Any(item => ValidateProperty(item.Name,model) != string.Empty);
+            return !typeof(ModelType).GetProperties().Any(item => ValidateProperty(item.Name, model) != string.Empty);
         }
     }
 }

@@ -2,12 +2,7 @@
 using ComputerRepairService.Models.Dtos;
 using ComputerRepairService.Models.Servicess;
 using LiveCharts;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ComputerRepairService.ViewModels.Business
 {
@@ -34,7 +29,7 @@ namespace ComputerRepairService.ViewModels.Business
                 }
             }
         }
-        public DashboardViewModel() :base("Dashboard")
+        public DashboardViewModel() : base("Dashboard")
         {
             //assigning service
             _dashboardService = new DashboardService();

@@ -1,17 +1,6 @@
-﻿using CommunityToolkit.Mvvm.Messaging;
-using ComputerRepairService.Helpers;
-using ComputerRepairService.Models.Dtos;
+﻿using ComputerRepairService.Helpers;
 using ComputerRepairService.Models.Servicess;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Diagnostics.Metrics;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -85,7 +74,7 @@ namespace ComputerRepairService.ViewModels.Single
                 }
             }
             catch (Exception ex)
-            { 
+            {
                 MessageBox.Show("Error on save", "Error");
             }
         }

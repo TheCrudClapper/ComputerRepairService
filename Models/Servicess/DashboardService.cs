@@ -1,14 +1,6 @@
 ﻿using ComputerRepairService.Models.BusinessObjects;
 using ComputerRepairService.Models.Dtos;
-using LiveCharts;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ComputerRepairService.Models.Servicess
 {
@@ -71,7 +63,7 @@ namespace ComputerRepairService.Models.Servicess
             IQueryable<Schedule> schedules = DatabaseContext.Schedules.Where(item => item.EndDate >= dateFrom && item.EndDate <= dateTo);
 
             List<ChartDto> repairsGroupedByMonth = schedules
-              .Where(item => item.EndDate.HasValue) 
+              .Where(item => item.EndDate.HasValue)
               //here doing it o c# level not on database
               .AsEnumerable()
               //using value here because end date is of type datetime?
@@ -107,12 +99,12 @@ namespace ComputerRepairService.Models.Servicess
                     //assigning the to achieve format of date yyyy-MM
                     Label = item.Key.Year + "-" + item.Key.Month,
                     //assigning average of rating to value
-                    Value = Math.Round(item.Average(f => f.Rating),2)
+                    Value = Math.Round(item.Average(f => f.Rating), 2)
                 })
                 //ordering by label (year - month)
                 .OrderBy(item => item.Label);
-                //returning 
-                return feedbacksAvgPerMonth.ToList();
+            //returning 
+            return feedbacksAvgPerMonth.ToList();
         }
     }
 }
